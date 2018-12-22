@@ -13,4 +13,4 @@
 
 ---
 
-Author: Nigel Tao, nigeltao@golang.org
+Copyright 2018 Nigel Tao, nigeltao@golang.org
