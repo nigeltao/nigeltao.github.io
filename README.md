@@ -4,6 +4,7 @@
 ## Blog
 
 - 2018-12-12 [Colorful Text for Everyday Programming](./blog/2018/colorful-text.md)
+- 2019-11-10 [The XYZ ABC Problem](./blog/2019/xyz-abc-problem.md)
 
 
 ## Projects
@@ -13,4 +14,4 @@
 
 ---
 
-Copyright 2018 Nigel Tao, nigeltao@golang.org
+Copyright 2018-2019 Nigel Tao, nigeltao@golang.org
