@@ -43,9 +43,45 @@ func main1() error {
 	if len(posts) == 0 {
 		return errors.New("no blog posts")
 	}
+	if err := writeFeed(posts); err != nil {
+		return err
+	}
 	if err := writeReadme(posts); err != nil {
 		return err
 	}
+	return nil
+}
+
+func writeFeed(posts []blogPost) error {
+	dst := bytes.NewBuffer(nil)
+	dst.WriteString(`<feed xmlns="http://www.w3.org/2005/Atom">` + "\n")
+	dst.WriteString(`  <link href="https://nigeltao.github.io/feed.xml" ` +
+		`rel="self" type="application/atom+xml"/>` + "\n")
+	dst.WriteString(`  <link href="https://nigeltao.github.io/" ` +
+		`rel="alternate" type="text/html"/>` + "\n")
+	fmt.Fprintf(dst, `  <updated>%sT00:00:00+00:00</updated>`+"\n", posts[len(posts)-1].date)
+	dst.WriteString(`  <id>https://nigeltao.github.io/feed.xml</id>` + "\n")
+	dst.WriteString(`  <title type="html">Nigel Tao's blog</title>` + "\n")
+
+	for i := len(posts) - 1; i >= 0; i-- {
+		if err := writeFeed1(dst, &posts[i]); err != nil {
+			return err
+		}
+	}
+
+	dst.WriteString("</feed>\n")
+	return ioutil.WriteFile("feed.xml", dst.Bytes(), 0666)
+}
+
+func writeFeed1(dst *bytes.Buffer, p *blogPost) error {
+	dst.WriteString("  <entry>\n")
+	fmt.Fprintf(dst, `    <title type="html">%s</title>`+"\n", p.title)
+	fmt.Fprintf(dst, `    <link href="https://nigeltao.github.io/%s" `+
+		`rel="alternate" type="text/html" title="%s"/>`+"\n", p.filename, p.title)
+	fmt.Fprintf(dst, `    <published>%sT00:00:00+00:00</published>`+"\n", p.date)
+	fmt.Fprintf(dst, `    <updated>%sT00:00:00+00:00</updated>`+"\n", p.date)
+	fmt.Fprintf(dst, `    <id>https://nigeltao.github.io/%s</id>`+"\n", p.filename)
+	dst.WriteString("  </entry>\n")
 	return nil
 }
 
@@ -61,8 +97,9 @@ func writeReadme(posts []blogPost) error {
 	src = match(dst, src, blog)
 
 	dst.WriteString(blog)
+	dst.WriteString("[RSS/Atom feed](/feed.xml).\n\n")
 	for _, p := range posts {
-		fmt.Fprintf(dst, "- %s [%s](%s)\n", p.date, p.title, p.filename)
+		fmt.Fprintf(dst, "- %s [%s](./%s)\n", p.date, p.title, p.filename)
 	}
 
 	const proj = "\n\n## Projects\n\n"
@@ -109,7 +146,7 @@ func findBlogPosts() (posts []blogPost, _ error) {
 			if !strings.HasSuffix(f1.Name(), ".md") {
 				continue
 			}
-			filename := "./blog/" + f0.Name() + "/" + f1.Name()
+			filename := "blog/" + f0.Name() + "/" + f1.Name()
 			post, err := load(filename)
 			if err == errNotABlogPost {
 				continue

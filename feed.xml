@@ -1,0 +1,21 @@
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <link href="https://nigeltao.github.io/feed.xml" rel="self" type="application/atom+xml"/>
+  <link href="https://nigeltao.github.io/" rel="alternate" type="text/html"/>
+  <updated>2019-11-10T00:00:00+00:00</updated>
+  <id>https://nigeltao.github.io/feed.xml</id>
+  <title type="html">Nigel Tao's blog</title>
+  <entry>
+    <title type="html">The XYZ ABC Problem</title>
+    <link href="https://nigeltao.github.io/blog/2019/xyz-abc-problem.md" rel="alternate" type="text/html" title="The XYZ ABC Problem"/>
+    <published>2019-11-10T00:00:00+00:00</published>
+    <updated>2019-11-10T00:00:00+00:00</updated>
+    <id>https://nigeltao.github.io/blog/2019/xyz-abc-problem.md</id>
+  </entry>
+  <entry>
+    <title type="html">Colorful Text for Everyday Programming</title>
+    <link href="https://nigeltao.github.io/blog/2018/colorful-text.md" rel="alternate" type="text/html" title="Colorful Text for Everyday Programming"/>
+    <published>2018-12-12T00:00:00+00:00</published>
+    <updated>2018-12-12T00:00:00+00:00</updated>
+    <id>https://nigeltao.github.io/blog/2018/colorful-text.md</id>
+  </entry>
+</feed>
