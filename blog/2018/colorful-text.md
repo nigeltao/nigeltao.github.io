@@ -45,12 +45,12 @@ In my terminal, I like the things that I type to be yellow and the computer's
 response to be white.
 
 It might not be the most correct way to do it, but I do it like this, in my
-`.bashrc` file:
+`.bashrc` file (_the following snippet was updated on 2020-05-05_):
 
 ```
 if [ "$TERM" = "xterm-256color" ]; then
+    PS0='\033[0m'
     PS1='\[\033[1;33m\]\$ '
-    trap 'printf "\033[0m"' DEBUG
 fi
 ```
 
