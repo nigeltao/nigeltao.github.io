@@ -1,9 +1,16 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <link href="https://nigeltao.github.io/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://nigeltao.github.io/" rel="alternate" type="text/html"/>
-  <updated>2019-12-20T00:00:00+00:00</updated>
+  <updated>2020-05-08T00:00:00+00:00</updated>
   <id>https://nigeltao.github.io/feed.xml</id>
   <title type="html">Nigel Tao's blog</title>
+  <entry>
+    <title type="html">`Mı~Le~Nıε~L`: an English Phonetic Alphabet</title>
+    <link href="https://nigeltao.github.io/blog/2020/miileeniol.md" rel="alternate" type="text/html" title="`Mı~Le~Nıε~L`: an English Phonetic Alphabet"/>
+    <published>2020-05-08T00:00:00+00:00</published>
+    <updated>2020-05-08T00:00:00+00:00</updated>
+    <id>https://nigeltao.github.io/blog/2020/miileeniol.md</id>
+  </entry>
   <entry>
     <title type="html">Wuffs v0.2.0 is Released</title>
     <link href="https://nigeltao.github.io/blog/2019/wuffs-v020-released.md" rel="alternate" type="text/html" title="Wuffs v0.2.0 is Released"/>
