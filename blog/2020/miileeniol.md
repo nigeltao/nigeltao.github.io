@@ -1,5 +1,9 @@
 # `Mı~Le~Nıε~L`: an English Phonetic Alphabet
 
+_Update on 2020-05-09: "phonetic alphabet" here is as in International Phonetic
+Alphabet (spelling words æz ðeɪ saʊnd), not as in NATO Phonetic Alphabet (Alfa,
+Bravo, Charlie, etc.)._
+
 COVID-19 has meant that I'm unexpectedly home-schooling my young child to read
 and write. In doing so, it's pretty obvious that English spelling has much room
 for improvement. Wikipedia's [English-language spelling
