@@ -23,7 +23,9 @@ Another difference (compared to Rust's primary implementation) is that the
 Wuffs compiler is a
 [transpiler](https://en.wikipedia.org/wiki/Source-to-source_compiler), like the
 very first [C++ compiler](https://en.wikipedia.org/wiki/Cfront). It outputs C
-code, not object code. That's not without its costs, but one benefit is that
+code, not object code. _Update on 2020-06-17: That C code is checked into the
+repository so that others can use the Wuffs library without also needing the
+Wuffs language tools._ That's not without its costs, but one benefit is that
 the generated C code's performance then be compared across different C
 compilers. For cases where [Clang/LLVM is 1.3x slower than
 gcc](https://bugs.llvm.org/show_bug.cgi?id=35567), we might never have known
@@ -94,6 +96,13 @@ options](https://github.com/uncrustify/uncrustify/blob/c7e1f366bab5496e79ef1939b
 
     $ clang-format-9 -dump-config | wc -l
     127
+
+_Update on 2020-06-17: I neglected to mention `indent`, which has [existed for
+decades](https://github.com/freebsd/freebsd/blob/master/usr.bin/indent/README).
+Still, `indent` also has many configuration options, and going from
+`clang-format` to `dumbindent` instead of `indent` has the added benefit of
+reducing the number of third-party programs needed to reproduce the Wuffs
+standard library's C form._
 
 Code formatting not just a hard problem, it's really hard. Bob Nystrom's a
 smart programmer. [Crafting Interpreters](https://craftinginterpreters.com/) is
