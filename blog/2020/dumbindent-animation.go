@@ -16,9 +16,10 @@
 
 // dumbindent-animation.go creates the images for the dumbindent blog post.
 //
-// The final step:
+// The final steps:
 //
-// convert -delay 200 dumbindent-animation-*.png dumbindent-animation.gif
+// convert -delay 200 dumbindent-animation-*.png _temp.gif
+// gifsicle -O3 _temp.gif -o dumbindent-animation.gif
 package main
 
 import (
