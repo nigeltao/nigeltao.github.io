@@ -11,6 +11,7 @@
 - 2020-05-08 [`Mı~Le~Nıε~L`: an English Phonetic Alphabet](./blog/2020/miileeniol.md)
 - 2020-06-05 [Generating Code](./blog/2020/generating-code.md)
 - 2020-06-15 [Dumbindent: When 93% of the Time was Spent in Clang-Format](./blog/2020/dumbindent.md)
+- 2020-09-01 [`jsonptr`: Using Wuffs' Memory-Safe, Zero-Allocation JSON Decoder](./blog/2020/jsonptr.md)
 
 
 ## Projects

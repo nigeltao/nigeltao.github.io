@@ -1,9 +1,16 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <link href="https://nigeltao.github.io/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://nigeltao.github.io/" rel="alternate" type="text/html"/>
-  <updated>2020-06-15T00:00:00+00:00</updated>
+  <updated>2020-09-01T00:00:00+00:00</updated>
   <id>https://nigeltao.github.io/feed.xml</id>
   <title type="html">Nigel Tao's blog</title>
+  <entry>
+    <title type="html">`jsonptr`: Using Wuffs' Memory-Safe, Zero-Allocation JSON Decoder</title>
+    <link href="https://nigeltao.github.io/blog/2020/jsonptr.md" rel="alternate" type="text/html" title="`jsonptr`: Using Wuffs' Memory-Safe, Zero-Allocation JSON Decoder"/>
+    <published>2020-09-01T00:00:00+00:00</published>
+    <updated>2020-09-01T00:00:00+00:00</updated>
+    <id>https://nigeltao.github.io/blog/2020/jsonptr.md</id>
+  </entry>
   <entry>
     <title type="html">Dumbindent: When 93% of the Time was Spent in Clang-Format</title>
     <link href="https://nigeltao.github.io/blog/2020/dumbindent.md" rel="alternate" type="text/html" title="Dumbindent: When 93% of the Time was Spent in Clang-Format"/>
