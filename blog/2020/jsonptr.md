@@ -99,11 +99,10 @@ libraries.
 
 For additional defence in depth, on Linux, the second thing that `jsonptr`'s
 `main` function does is to
-[**self-impose](https://github.com/google/wuffs/blob/a325d7860f9c922b805d959a7f66c726adc92593/example/jsonptr/jsonptr.cc#L1434)
+[self-impose](https://github.com/google/wuffs/blob/a325d7860f9c922b805d959a7f66c726adc92593/example/jsonptr/jsonptr.cc#L1434)
 a [`SECCOMP_MODE_STRICT`](https://man7.org/linux/man-pages/man2/seccomp.2.html)
-sandbox**. The first thing that it does is to open (but not read) the file
-named in the command line arguments, which the sandbox would otherwise
-prohibit.
+sandbox. The first thing that it does is to open (but not read) the file named
+in the command line arguments, which the sandbox would otherwise prohibit.
 
 A `SECCOMP_MODE_STRICT` sandbox effectively restricts the program to only read
 from the input file, compute on its bytes and write to `stdout`. Even if
