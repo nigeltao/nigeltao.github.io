@@ -17,6 +17,7 @@
 ## Projects
 
 - [dumbindent](https://nigeltao.github.io/blog/2020/dumbindent.html), a C formatter
+- [jsonptr](https://nigeltao.github.io/blog/2020/jsonptr.html), a JSON formatter
 - [rac](https://github.com/google/wuffs/blob/master/doc/spec/rac-spec.md), Random Access Compression
 - [taowm](https://github.com/nigeltao/taowm), The Acutely Opinionated Window Manager
 - [wuffs](https://github.com/google/wuffs), Wrangling Untrusted File Formats Safely
