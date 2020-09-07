@@ -74,13 +74,18 @@ func writeFeed(posts []blogPost) error {
 }
 
 func writeFeed1(dst *bytes.Buffer, p *blogPost) error {
+	filename := p.filename
+	if strings.HasSuffix(filename, ".md") {
+		filename = filename[:len(filename)-3] + ".html"
+	}
+
 	dst.WriteString("  <entry>\n")
 	fmt.Fprintf(dst, `    <title type="html">%s</title>`+"\n", p.title)
 	fmt.Fprintf(dst, `    <link href="https://nigeltao.github.io/%s" `+
-		`rel="alternate" type="text/html" title="%s"/>`+"\n", p.filename, p.title)
+		`rel="alternate" type="text/html" title="%s"/>`+"\n", filename, p.title)
 	fmt.Fprintf(dst, `    <published>%sT00:00:00+00:00</published>`+"\n", p.date)
 	fmt.Fprintf(dst, `    <updated>%sT00:00:00+00:00</updated>`+"\n", p.date)
-	fmt.Fprintf(dst, `    <id>https://nigeltao.github.io/%s</id>`+"\n", p.filename)
+	fmt.Fprintf(dst, `    <id>https://nigeltao.github.io/%s</id>`+"\n", filename)
 	dst.WriteString("  </entry>\n")
 	return nil
 }
