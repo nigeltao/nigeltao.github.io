@@ -319,7 +319,14 @@ func doBuffers(frame int) image.Image {
 	drawBar(m, streamX, streamX+(frame*charWidth), streamY+32-14)
 	drawTriangle(m, streamX+(frame*charWidth), streamY+32-14, +1, black.C)
 
-	c.DrawString("buf.meta.pos+t.index=24", freetype.Pt(streamX, streamY+128))
+	if frame <= 8 {
+		c.SetSrc(darkGray)
+	} else {
+		c.SetSrc(darkGreen)
+	}
+	c.DrawString("             t.index   ", freetype.Pt(streamX, streamY+128))
+	c.SetSrc(image.Black)
+	c.DrawString("buf.meta.pos+       =24", freetype.Pt(streamX, streamY+128))
 
 	drawRect(
 		m,
@@ -333,7 +340,14 @@ func doBuffers(frame int) image.Image {
 	c.SetSrc(image.Black)
 	c.DrawString(rhyme1[frame:], freetype.Pt(windowX, windowY))
 
-	c.DrawString(fmt.Sprintf("t.index=%d", 24-frame), freetype.Pt(windowX, windowY-48))
+	if frame <= 8 {
+		c.SetSrc(darkGray)
+	} else {
+		c.SetSrc(darkGreen)
+	}
+	c.DrawString(fmt.Sprintf("t.index"), freetype.Pt(windowX, windowY-48))
+	c.SetSrc(black)
+	c.DrawString(fmt.Sprintf("       =%d", 24-frame), freetype.Pt(windowX, windowY-48))
 	drawBar(m, windowX, windowX+((24-frame)*charWidth), windowY-32)
 	drawTriangle(m, windowX+((24-frame)*charWidth), windowY-32, -1, black.C)
 

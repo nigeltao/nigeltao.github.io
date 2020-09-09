@@ -1,12 +1,12 @@
-# `jsonptr`: Using Wuffs' Memory-Safe, Zero-Allocation JSON Decoder
+# Jsonptr: Using Wuffs' Memory-Safe, Zero-Allocation JSON Decoder
 
 _Summary: `jsonptr` is a new, sandboxed command-line tool that formats JSON and
 speaks the JSON Pointer query syntax. Wuffs standard library's JSON decoder can
 run in O(1) memory, even with arbitrarily long input (containing arbitrarily
 long strings) because it uses multiple tokens to represent each JSON string.
 Processing the JSON Pointer query during (instead of after) parsing can
-dramatically impact performance. `jsonptr` can be faster, use less memory and
-be safer than alternatives such as `jq`, `serde_json` and `simdjson`._
+dramatically impact performance. `jsonptr` can be faster, tighter (use less
+memory) and safer than alternatives such as `jq`, `serde_json` and `simdjson`._
 
 
 ## `jsonptr`
@@ -305,7 +305,7 @@ Minefield](http://seriot.ch/parsing_json.php)" article.
 
 [`serde_json`](https://docs.rs/serde_json/1.0.57/serde_json/index.html) is a
 popular Rust crate for processing JSON. As the "serde" name suggests, its
-primary focus is on serializing and deserializing and for numbers, this means
+primary focus is on serializing and deserializing. For numbers, this means
 `StringToDouble` and `DoubleToString` equivalents. It can also implement a JSON
 formatter, with the redundant computation cost as discussed in the "Parsing
 Numbers" section above.
@@ -349,7 +349,7 @@ Numbers" section above.
     1
 
 The `-only-parse-dont-output` flag and the `query` command line argument are
-discussed further below, in the "Query Dependent Running Time" section below.
+discussed in the "Query Dependent Running Time" section below.
 
 
 ### `serde_json_core`
@@ -392,7 +392,7 @@ There are two equivalent visualizations of this, duals of each other, where one
 thing (the stream or buffer) stays still and the other thing (the buffer or
 stream) moves. For example, here's a stream containing "see I have a rhyme
 assisting my feeble brain" (the gray text), a 16-byte buffer (the green
-rectangles) and a focus on the 't' byte.
+rectangles) and a focus on the 't' byte (which is in view when `t.index < 16`).
 
 ![jsonptr buffers](./jsonptr-buffers.gif)
 
@@ -406,12 +406,12 @@ writer end, a buffer's metadata also has a *reader index* `meta.ri` and a
 *writer index* `meta.wi`.
 
 - *Filling* or writing to a buffer (e.g. copying from `stdin` to a buffer)
-  involves writing some number (`wn`) of bytes starting at `meta.wi` and
+  involves writing some number `wn` of bytes starting at `meta.wi` and
   incrementing `meta.wi` by `wn`.
 - The `writer_length`, defined as `(data.len - meta.wi)`, is the maximum number
   of bytes that can be written: you can't write past the end of the buffer.
 - *Draining* or reading from a buffer (e.g. copying from a buffer to `stdout`)
-  involves reading some number (`rn`) of bytes starting at `meta.ri` and
+  involves reading some number `rn` of bytes starting at `meta.ri` and
   incrementing `meta.ri` by `rn`.
 - The `reader_length`, defined as `(meta.wi - meta.ri)` is the maximum number
   of bytes that can be read: you can't read what hasn't been written yet (and
@@ -466,12 +466,12 @@ also called I/O buffers).
     } wuffs_base__io_buffer;
 
 In Wuffs code, structs have public methods but private fields. A
-`base.io_reader` is just a I/O buffer that only has drain-related methods (and
+`base.io_reader` is just an I/O buffer that only has drain-related methods (and
 no fill-related methods) and a `base.io_writer` is vice versa. For example, if
 `r` is a `base.io_reader` then `r.length()` is the `reader_length`. The Wuffs
 compiler will reject e.g. a `r.peek_u32le()` call unless there's also
-[proof](https://github.com/google/wuffs/blob/a325d7860f9c922b805d959a7f66c726adc92593/doc/note/facts.md) that
-`(r.length() >= 4)`.
+[proof](https://github.com/google/wuffs/blob/a325d7860f9c922b805d959a7f66c726adc92593/doc/note/facts.md)
+that `(r.length() >= 4)`.
 
 
 ## Wuffs Tokens
@@ -492,13 +492,13 @@ unnecessary](https://www.tbray.org/ongoing/When/201x/2016/08/20/Fixing-JSON#p-1)
 
 More unusually, **each JSON string is represented by multiple Wuffs tokens**.
 One reason for this is that Wuffs token have a maximum length of 65,535 bytes
-(discussed in the "64 Bit Token Representation" section below), even if the
+(discussed in the "64-Bit Token Representation" section below), even if the
 source buffer is longer. For example, a 200,000 byte JSON string could decode
 as three 65,535 byte tokens and some shorter residual tokens that make up the
 remaining 3,395 bytes. For the `jsonptr` program, which uses a 32 KiB source
 buffer, no token will be longer than 32 KiB.
 
-Even if a JSON string measures under 65,536 (or 32,768 bytes), it decomposes
+Even if a JSON string measures under 65,536 (or 32,768) bytes, it decomposes
 into multiple Wuffs tokens. Consider the JSON string `"\u0009½+\u00BD=1\n"`.
 Different parts of the input string (in the JSON format) are converted
 differently to produce their contribution to the decoded string. For example,
@@ -576,9 +576,9 @@ often as a 1-to-1 `memcpy`.
 
 ## Communicating Sequential Processes
 
-The `jsonptr` C++ program consists of four routines connected by byte buffers
-(also known in Wuffs as `base.io_buffer`s) or token buffers (which are just
-like byte buffers but work on 64-bit tokens instead of 8-bit bytes):
+The `jsonptr` C++ program consists of four routines connected by byte or token
+buffers (token buffers are just like byte buffers but work on 64-bit tokens
+instead of 8-bit bytes):
 
 1. Read from `stdin` (a file descriptor), writing to `src` (a byte buffer).
 2. Decode JSON, reading from `src` and writing to `tok` (a token buffer). This
@@ -846,7 +846,7 @@ dominated by parsing (creating the tape), and a little noisy:
 
 `jsonfindptrs` also deserializes to a [DOM
 tree](https://github.com/google/wuffs/blob/a325d7860f9c922b805d959a7f66c726adc92593/example/jsonfindptrs/jsonfindptrs.cc#L296-L324),
-like `simdjson` and `serde_json` but unlike `jsonptr`, but the running time is
+like `simdjson` and `serde_json` but unlike `jsonptr`. Its running time is
 *query-dependent*:
 
     $ time ./my-jsonfindptrs -only-parse-dont-output                     < citylots.json > /dev/null
@@ -920,10 +920,11 @@ were manually inserted in the output below).
     e":"Feature"}
     real    0m4.069s
 
-As before, `simd_json` has truncated
-the numbers to 6 digits. `serde_json` has also re-written e.g.
-`-122.416294033786585` as `-122.4162940337866`, which is a [slightly different
-double-precision number](https://play.golang.org/p/RkScKExlz_m).
+As before, `simd_json` has truncated the numbers to 6 digits. `serde_json` has
+also re-written e.g. `-122.416294033786585` as `-122.4162940337866`, which is a
+[slightly different double-precision
+number](https://play.golang.org/p/RkScKExlz_m) (filed as `serde_json`
+[issue #707](https://github.com/serde-rs/json/issues/707)).
 
 
 ### Sawzall
@@ -1006,8 +1007,8 @@ course, not restricted to any particular software tool or programming language.
         case "-indent":
             err = ejson.Indent(buf, src, "", "    ")
         case "-unmarshal":
-            m := map[string]interface{}(nil)
-            err = ejson.Unmarshal(src, &m)
+            dst := interface{}(nil)
+            err = ejson.Unmarshal(src, &dst)
         case "-usepkgjson":
             // github.com/pkg/json doesn't implement Compact. We approximate
             // minifying the input JSON by concatenating all of the tokens.
@@ -1083,7 +1084,7 @@ which uses a streaming API, straight from the `rapidjson` repository:
     real    0m1.267s  (1.13x vs jsonptr)
 
 It parses numbers, I guess, although something looks off (filed as `rapidjson`
-issue [issue #1773](https://github.com/Tencent/rapidjson/issues/1773)):
+[issue #1773](https://github.com/Tencent/rapidjson/issues/1773)):
 
     $ echo '[0.5, 0.99999999999999999, 2, 123.456789]' | ./my-rapidjson
     [

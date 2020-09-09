@@ -5,8 +5,8 @@
   <id>https://nigeltao.github.io/feed.xml</id>
   <title type="html">Nigel Tao's blog</title>
   <entry>
-    <title type="html">`jsonptr`: Using Wuffs' Memory-Safe, Zero-Allocation JSON Decoder</title>
-    <link href="https://nigeltao.github.io/blog/2020/jsonptr.html" rel="alternate" type="text/html" title="`jsonptr`: Using Wuffs' Memory-Safe, Zero-Allocation JSON Decoder"/>
+    <title type="html">Jsonptr: Using Wuffs' Memory-Safe, Zero-Allocation JSON Decoder</title>
+    <link href="https://nigeltao.github.io/blog/2020/jsonptr.html" rel="alternate" type="text/html" title="Jsonptr: Using Wuffs' Memory-Safe, Zero-Allocation JSON Decoder"/>
     <published>2020-09-01T00:00:00+00:00</published>
     <updated>2020-09-01T00:00:00+00:00</updated>
     <id>https://nigeltao.github.io/blog/2020/jsonptr.html</id>
