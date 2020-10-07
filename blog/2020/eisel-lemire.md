@@ -291,9 +291,9 @@ overflows a `u64`. In practice, it's easier to check the looser condition that
 
 - `(1 << 63) =  9223372036854775808`, which has 19 decimal digits
 - `(1 << 64) = 18446744073709551616`, which has 20 decimal digits
-- 19 nines, ` 9999999999999999999 =  0x8AC7230489E7FFFF`, which has 64 binary
+- 19 nines,  `9999999999999999999 = 0x8AC72304_89E7FFFF`, which has 64 binary
   and 16 hexadecimal digits
-- 20 nines, `99999999999999999999 = 0x56BC75E2D630FFFFF`, which has 67 binary
+- 20 nines, `99999999999999999999 = 0x5_6BC75E2D_630FFFFF`, which has 67 binary
   and 17 hexadecimal digits
 
 
