@@ -12,6 +12,7 @@
 - 2020-06-05 [Generating Code](./blog/2020/generating-code.md)
 - 2020-06-15 [Dumbindent: When 93% of the Time was Spent in Clang-Format](./blog/2020/dumbindent.md)
 - 2020-09-01 [Jsonptr: Using Wuffs' Memory-Safe, Zero-Allocation JSON Decoder](./blog/2020/jsonptr.md)
+- 2020-10-07 [The Eisel-Lemire ParseNumberF64 Algorithm](./blog/2020/eisel-lemire.md)
 
 
 ## Projects
