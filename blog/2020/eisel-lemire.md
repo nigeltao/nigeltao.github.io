@@ -26,8 +26,8 @@ fail over to a fallback `ParseNumberF64` implementation.
 long as Eisel-Lemire doesn't claim false positives, the combined approach is
 both fast and correct. _Update on 2020-10-08: To be clear, combining with the
 fallback means that Eisel-Lemire-with-the-fallback is (much) faster than
-just-the-fallback, in 'only' 99+% of the cases, but still correct for 100% of
-the cases, including subnormal numbers, infinities and all the rest._
+just-the-fallback, for 'only' 99+% of the cases, but **still correct for 100%
+of the cases**, including subnormal numbers, infinities and all the rest._
 
 If falling back to `strtod`, know that it can be sensitive to
 [locale-related](https://en.wikipedia.org/wiki/Decimal_separator) environment
