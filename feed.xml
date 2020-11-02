@@ -1,9 +1,16 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <link href="https://nigeltao.github.io/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://nigeltao.github.io/" rel="alternate" type="text/html"/>
-  <updated>2020-10-07T00:00:00+00:00</updated>
+  <updated>2020-11-02T00:00:00+00:00</updated>
   <id>https://nigeltao.github.io/feed.xml</id>
   <title type="html">Nigel Tao's blog</title>
+  <entry>
+    <title type="html">ParseNumberF64 by Simple Decimal Conversion</title>
+    <link href="https://nigeltao.github.io/blog/2020/parse-number-f64-simple.html" rel="alternate" type="text/html" title="ParseNumberF64 by Simple Decimal Conversion"/>
+    <published>2020-11-02T00:00:00+00:00</published>
+    <updated>2020-11-02T00:00:00+00:00</updated>
+    <id>https://nigeltao.github.io/blog/2020/parse-number-f64-simple.html</id>
+  </entry>
   <entry>
     <title type="html">The Eisel-Lemire ParseNumberF64 Algorithm</title>
     <link href="https://nigeltao.github.io/blog/2020/eisel-lemire.html" rel="alternate" type="text/html" title="The Eisel-Lemire ParseNumberF64 Algorithm"/>
