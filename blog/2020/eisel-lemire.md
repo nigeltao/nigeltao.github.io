@@ -32,7 +32,9 @@ of the cases**, including subnormal numbers, infinities and all the rest._
 If falling back to `strtod`, know that it can be sensitive to
 [locale-related](https://en.wikipedia.org/wiki/Decimal_separator) environment
 variables (i.e. whether twelve point five is `"12.5"` or `"12,5"`). Discussing
-fallback algorithms any further is out of scope for this blog post.
+fallback algorithms any further is out of scope for this blog post. _Update on
+2020-11-02: the Simple Decimal Conversion fallback algorithm is discussed in
+[the next blog post](./parse-number-f64-simple.md)_.
 
 
 ### Notation
@@ -566,18 +568,20 @@ August 2020, does not use the Eisel-Lemire algorithm):
 
 ## Testing
 
+_Update on 2020-11-02: link to a richer test suite._
+
 The
-[`nigeltao/parse-number-f64-test-data`](https://github.com/nigeltao/parse-number-f64-test-data)
+[`nigeltao/parse-number-fxx-test-data`](https://github.com/nigeltao/parse-number-fxx-test-data)
 repository contains many test cases, one per line, that look like:
 
-    3FF0000000000000 1
-    3FF4000000000000 1.25
-    3FF6666666666666 1.4
-    405EDD2F1A9FBE77 123.456
-    4088A80000000000 789
-    7FF0000000000000 123.456e789
+    3C00 3F800000 3FF0000000000000 1
+    3D00 3FA00000 3FF4000000000000 1.25
+    3D9A 3FB33333 3FF6666666666666 1.4
+    57B7 42F6E979 405EDD2F1A9FBE77 123.456
+    622A 44454000 4088A80000000000 789
+    7C00 7F800000 7FF0000000000000 123.456e789
 
-Parsing the second column (the string form) should produce the first column
+Parsing the fourth column (the string form) should produce the third column
 (the 64 bits of the `f64` form). In this snippet, the final line's `f64`
 representation is infinity. As before, `DBL_MAX` is approximately `1.80e+308`.
 
@@ -597,8 +601,8 @@ to that data set verifies that, on my computer:
 - Wuffs' re-implementation
 - Go's `strconv.ParseFloat`
 
-all agree on the `f64` form for over 700,000 unique test cases. Everything but
-C's `strtod` should also be locale-independent.
+all agree on the `f64` form for over several million unique test cases.
+Everything but C's `strtod` should also be locale-independent.
 
 
 ## Source Code
