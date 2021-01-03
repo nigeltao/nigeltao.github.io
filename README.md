@@ -14,6 +14,7 @@
 - 2020-09-01 [Jsonptr: Using Wuffs' Memory-Safe, Zero-Allocation JSON Decoder](./blog/2020/jsonptr.md)
 - 2020-10-07 [The Eisel-Lemire ParseNumberF64 Algorithm](./blog/2020/eisel-lemire.md)
 - 2020-11-02 [ParseNumberF64 by Simple Decimal Conversion](./blog/2020/parse-number-f64-simple.md)
+- 2021-01-03 [Fruit Salad Domino](./blog/2021/fruit-salad-domino.md)
 
 
 ## Projects
@@ -28,4 +29,4 @@
 
 ---
 
-Copyright 2018-2020 Nigel Tao, nigeltao@golang.org
+Copyright 2018-2021 Nigel Tao, nigeltao@golang.org

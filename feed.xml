@@ -1,9 +1,16 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <link href="https://nigeltao.github.io/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://nigeltao.github.io/" rel="alternate" type="text/html"/>
-  <updated>2020-11-02T00:00:00+00:00</updated>
+  <updated>2021-01-03T00:00:00+00:00</updated>
   <id>https://nigeltao.github.io/feed.xml</id>
   <title type="html">Nigel Tao's blog</title>
+  <entry>
+    <title type="html">Fruit Salad Domino</title>
+    <link href="https://nigeltao.github.io/blog/2021/fruit-salad-domino.html" rel="alternate" type="text/html" title="Fruit Salad Domino"/>
+    <published>2021-01-03T00:00:00+00:00</published>
+    <updated>2021-01-03T00:00:00+00:00</updated>
+    <id>https://nigeltao.github.io/blog/2021/fruit-salad-domino.html</id>
+  </entry>
   <entry>
     <title type="html">ParseNumberF64 by Simple Decimal Conversion</title>
     <link href="https://nigeltao.github.io/blog/2020/parse-number-f64-simple.html" rel="alternate" type="text/html" title="ParseNumberF64 by Simple Decimal Conversion"/>
