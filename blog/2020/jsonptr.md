@@ -22,7 +22,7 @@ make them more readable.
     $ git clone https://github.com/google/wuffs.git
     $ g++ -O3 -Wall wuffs/example/jsonptr/jsonptr.cc -o my-jsonptr
     $ ./my-jsonptr -query=/browser/window_placement \
-    > ~/.config/google-chrome/Profile\ 1/Preferences
+      ~/.config/google-chrome/Profile\ 1/Preferences
     {
         "bottom": 1200,
         "docked": false,
@@ -134,7 +134,7 @@ the network, even when downloading over HTTP (not HTTPS).
           0   14703  216670
     $ # jsonptr can make it more human-readable.
     $ wget -q -O - http://api.nobelprize.org/v1/prize.json | \
-    > ./my-jsonptr | head -n 20
+      ./my-jsonptr | head -n 20
     {
         "prizes": [
             {
@@ -160,7 +160,7 @@ For an additional party trick, `jsonptr` can print a depth-limited summary of
 the JSON node tree.
 
     $ wget -q -O - http://api.nobelprize.org/v1/prize.json | \
-    > ./my-jsonptr -query=/prizes/0 -max-output-depth=2
+      ./my-jsonptr -query=/prizes/0 -max-output-depth=2
     {
         "year": "2019",
         "category": "chemistry",
