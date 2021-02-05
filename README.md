@@ -27,6 +27,13 @@
 - [wuffs](https://github.com/google/wuffs), Wrangling Untrusted File Formats Safely
 
 
+## Contact
+
+E-mail: nigeltao@golang.org
+
+I don't know who `twitter.com/nigeltao` is, but it's not me.
+
+
 ---
 
-Copyright 2018-2021 Nigel Tao, nigeltao@golang.org
+Copyright 2018-2021 Nigel Tao
