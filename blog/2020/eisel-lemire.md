@@ -619,6 +619,12 @@ and
 [Rust](https://github.com/ezrosent/frawk/blob/1b23207f09df441bea8bc5bc89ba2472b5176c51/src/runtime/float_parse/mod.rs#L95)
 re-implementations.
 
+_Update on 2021-02-21: if you just want to see the code, Go 1.16 (released
+February 2021) has a [70 line
+implementation](https://github.com/golang/go/blob/release-branch.go1.16/src/strconv/eisel_lemire.go)
+(plus another 70 lines for `float32` vs `float64`, plus 700 lines for the
+powers-of-10 table)_.
+
 
 ---
 
