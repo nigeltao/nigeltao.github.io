@@ -112,7 +112,7 @@ func writeReadme(posts []blogPost) error {
 
 	const copr = "\n\nCopyright "
 	src = match(dst, src, copr)
-	fmt.Fprintf(dst, "\n\nCopyright %s-%s Nigel Tao, nigeltao@golang.org\n",
+	fmt.Fprintf(dst, "\n\nCopyright %s-%s Nigel Tao\n",
 		posts[0].date[:4],
 		posts[len(posts)-1].date[:4],
 	)
