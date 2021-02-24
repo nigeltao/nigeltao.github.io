@@ -461,7 +461,7 @@ implementation. The bottom of [Cox's blog
 post](https://research.swtch.com/ftoa) has links to a number of other
 approaches, including David Gay's 1990 classic ["Correctly Rounded
 Binary-Decimal and Decimal-Binary
-Conversions](http://citeseer.ist.psu.edu/viewdoc/summary?doi=10.1.1.31.4049).
+Conversions"](http://citeseer.ist.psu.edu/viewdoc/summary?doi=10.1.1.31.4049).
 
 
 ---
