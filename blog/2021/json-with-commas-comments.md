@@ -6,6 +6,11 @@ style comments. These two features make it more suitable for human-editable
 configuration files, without adding so many features that it's incompatible
 with numerous other (deliberate and accidental) existing JSON extensions._
 
+_Update on 2020-02-26: This new file format is not a particularly novel or
+profound 'invention', for those already familiar with JSON. The point is that
+people keep wanting it and re-inventing it, so we might as well give it a
+standard name (and file extension)._
+
 
 ## Extensibility
 
@@ -36,6 +41,10 @@ slightly different extensions both called "JSONC"):
 - [HJSON](https://hjson.github.io/)
 - [HOCON](https://github.com/lightbend/config/blob/master/HOCON.md)
 
+_Update on 2020-02-26: ["Awesome JSON - What's
+Next?"](https://github.com/json-next/awesome-json-next) is a longer list of
+JSON extensions._
+
 Suprisingly, [YAML](https://yaml.org/) is also a superset of JSON. Not just
 conceptually, but also in the sense that valid JSON files are also valid YAML
 files (although there's some divergence about whether duplicate keys are
@@ -49,7 +58,8 @@ problems](https://noyaml.com/).
 There are also informal supersets-of-JSON in widespread use, sometimes more by
 accident than by design. The Chromium web browser's [JSON parser goes
 off-spec](https://source.chromium.org/chromium/chromium/src/+/master:base/json/json_reader.h;l=27;drc=d0919138b7951c1a154cf802a68aad7904b6f4c9)
-in a number of ways. The timeline could have been:
+in a number of ways. _Update on 2020-02-26: That's **one** of Chromium's JSON
+parsers._ The timeline could have been:
 
 1. Some developer long ago (perhaps in a yak-shaving hurry) wrote or
    copy/pasted some parsing code that was accidentally too lenient, allowing a
@@ -233,6 +243,12 @@ other tools that only speak the latter:
         2,
         3
     ]
+    $ echo '[1,2,/*hello*/3,]' | jsonptr -input-jwcc -compact-output
+    [1,2,3]
+
+_Update on 2020-02-26: RapidJSON (and undoubtedly other C++ libraries) also
+support commas and comments. Part of JWCC's motivation is that it shouldn't be
+hard to tweak existing JSON tools to support it._
 
 
 ### Go Implementation
@@ -240,6 +256,137 @@ other tools that only speak the latter:
 In a case of parallel evolution, [Tailscale](https://tailscale.com/) already
 have a Go implementation of this format. They call it
 [HuJSON](https://github.com/tailscale/hujson) - Human JSON.
+
+
+## Frequently Asked Questions
+
+_Update on 2020-02-26: this whole FAQ section was added after this article was
+originally posted, following discussion at [Hacker
+News](https://news.ycombinator.com/item?id=26224255),
+[/r/programming](https://www.reddit.com/r/programming/comments/lpmlt2/json_with_commas_and_comments/)
+and elsewhere._
+
+
+### Why allow both `/* block */` and `// line` comments?
+
+Both have their pros and cons. Block comments don't nest or let you write a
+glob in your comment like `ex/*/ample.txt`. Line comments (with line breaks)
+don't always play as well with line-oriented tools.
+
+
+### Why not allow `#` comments?
+
+JWCC things are valid JavaScript. `#` comments are not.
+
+
+### Why not allow no commas at all?
+
+JWCC things are valid JavaScript. Missing commas like `[1 2 3]` are not.
+
+
+### Why not allow `NaN` or `Inf` numbers?
+
+Having JSON and JWCC share *exactly* the same object model can make it easier
+to upgrade from JSON to JWCC without having to worry if any code will break
+when encountering a previously impossible `NaN`.
+
+On the flip side, JSON is a common-denominator wire format for many APIs.
+Downgrading JWCC to JSON is trivial. Downgrading e.g. JSON5 to JSON is not.
+There is no obvious unambiguous mapping from a JSON5 `NaN` to JSON.
+
+
+### Why not allow multi-line or single-quoted strings?
+
+They were considered, but a line had to be drawn somewhere. Commas and comments
+seem the biggest pain points for using JSON as a configuration file format.
+Everything after that has a lower benefit/cost ratio.
+
+
+### Why not prohibit duplicate keys?
+
+Sure, duplicate key handling (or the lack of it) can [cause serious
+bugs](https://labs.bishopfox.com/tech-blog/an-exploration-of-json-interoperability-vulnerabilities)
+but JWCC is a superset of JSON, warts and all, and *the JSON specification*
+allows for duplicate keys.
+
+Duplicate key detection isn't free. Arbitrarily large JSON can be [parsed in
+`O(1)` memory](https://nigeltao.github.io/blog/2020/jsonptr.html) but duplicate
+key detection requires `O(N)` memory in the worst case.
+
+
+### Why not Visual Studio's JSON-with-comments instead?
+
+That's "JSONC #2" above. [It doesn't consider final
+commas](https://code.visualstudio.com/docs/languages/json#_json-with-comments).
+The tools also use the `.json` file extension, even though those files aren't
+JSON. Some other JSON parsers will rightfully reject them.
+
+
+### Why not YAML instead?
+
+See ["NO problems"](#the-many-json-extensions) above and also Martin Tournoij's
+["YAML: probably not so great after
+all"](https://www.arp242.net/yaml-config.html) article. He also [wrote
+about JSON's flaws](https://www.arp242.net/json-config.html) but that's JSON,
+not JWCC.
+
+
+### Why not JSON5, HJSON or HOCON instead?
+
+Or [ION](https://amzn.github.io/ion-docs/),
+[Rome](http://rome.tools/#rome-json) or
+[SEN](https://github.com/ohler55/ojg/blob/develop/sen.md)? I think unquoted
+strings are a mistake. See ["Clarity, not Terseness"](#clarity-not-terseness)
+above.
+
+
+### I disagree and think unquoted strings are great.
+
+That's not a question :-) but if you like e.g. JSON5 then use JSON5.
+
+All I'm saying is that some of us prefer JSON-like trade-offs. Since those that
+do are continually re-inventing "JSON With Commas and Comments", we might as
+well agree on a standard searchable name for it (JWCC), a standard file
+extension (`.jwcc`), a standard MIME type (`application/jwcc`), etc.
+
+
+### Why not TOML instead?
+
+If you like [TOML](https://toml.io/) (and having more than one way to do
+things) then use TOML. It is more expressive and more complicated than JSON or
+JWCC, which is neither always better or always worse. Again, it just chooses
+different trade-offs.
+
+
+### Why not CUE instead?
+
+If you like [CUE](https://cuelang.org/) then use CUE. Ditto for
+[Dhall](https://dhall-lang.org/) and [Jsonnet](https://jsonnet.org/), or even
+JavaScript (the "JS" in "JSON"). Again, more expressive, more complicated,
+different trade-offs.
+
+Still, I think Turing-complete configuration languages are a mistake.
+Elaborating on that will have to be a separate blog post, if I ever find the
+time to write it.
+
+
+### Why not, per Crockford, strip comments and then pipe to a JSON parser?
+
+That's more or less equivalent to what I'm doing. (Having my JSON libraries and
+tools take an `ALLOW_JWCC` option is, in some sense, merely an optimization). I
+still need a name (and a file extension) for the on-disk format (the thing with
+comments), since it's *not* JSON. That name is JWCC.
+
+
+### Why not just add an `ALLOW_JWCC` flag to existing JSON libraries?
+
+Do that for sure, but see "per Crockford" above. I need a name that's not JSON
+for these files that aren't JSON.
+
+
+### How do you pronounce "JWCC"?
+
+"JWCC".
 
 
 ---
