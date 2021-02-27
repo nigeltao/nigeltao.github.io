@@ -314,12 +314,19 @@ Duplicate key detection isn't free. Arbitrarily large JSON can be [parsed in
 key detection requires `O(N)` memory in the worst case.
 
 
-### Why not Visual Studio's JSON-with-comments instead?
+### Why not Visual Studio's "JSON with Comments" instead?
 
-That's "JSONC #2" above. [It doesn't consider final
-commas](https://code.visualstudio.com/docs/languages/json#_json-with-comments).
-The tools also use the `.json` file extension, even though those files aren't
-JSON. Some other JSON parsers will rightfully reject them.
+That's "JSONC #2" above. It doesn't consider final commas.
+
+_Update on 2020-02-28: Apparently it does allow final commas, but [its brief
+description](https://code.visualstudio.com/docs/languages/json#_json-with-comments)
+doesn't mention commas at all. There doesn't appear to be a separate
+specification. If it allows commas and comments (but not e.g. unquoted
+strings), it sounds like it's the same as (or a superset of) JWCC. Still, the
+Visual Studio tools also use the `.json` file extension, even though those
+files aren't JSON. Some other JSON parsers will rightfully reject them. The
+"JSONC" name is unfortunately also ambiguous: see "JSONC #1" and "JSONC #2"
+above. Using "JWCC" and `.jwcc` instead would be clearer._
 
 
 ### Why not YAML instead?
@@ -331,7 +338,7 @@ about JSON's flaws](https://www.arp242.net/json-config.html) but that's JSON,
 not JWCC.
 
 
-### Why not JSON5, HJSON or HOCON instead?
+### Why not JSON5, JSONC #1, HJSON or HOCON instead?
 
 Or [ION](https://amzn.github.io/ion-docs/),
 [Rome](http://rome.tools/#rome-json) or
