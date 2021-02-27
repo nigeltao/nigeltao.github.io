@@ -6,7 +6,7 @@ style comments. These two features make it more suitable for human-editable
 configuration files, without adding so many features that it's incompatible
 with numerous other (deliberate and accidental) existing JSON extensions._
 
-_Update on 2020-02-26: This new file format is not a particularly novel or
+_Update on 2021-02-26: This new file format is not a particularly novel or
 profound 'invention', for those already familiar with JSON. The point is that
 people keep wanting it and re-inventing it, so we might as well give it a
 standard name (and file extension)._
@@ -41,7 +41,7 @@ slightly different extensions both called "JSONC"):
 - [HJSON](https://hjson.github.io/)
 - [HOCON](https://github.com/lightbend/config/blob/master/HOCON.md)
 
-_Update on 2020-02-26: ["Awesome JSON - What's
+_Update on 2021-02-26: ["Awesome JSON - What's
 Next?"](https://github.com/json-next/awesome-json-next) is a longer list of
 JSON extensions._
 
@@ -58,7 +58,7 @@ problems](https://noyaml.com/).
 There are also informal supersets-of-JSON in widespread use, sometimes more by
 accident than by design. The Chromium web browser's [JSON parser goes
 off-spec](https://source.chromium.org/chromium/chromium/src/+/master:base/json/json_reader.h;l=27;drc=d0919138b7951c1a154cf802a68aad7904b6f4c9)
-in a number of ways. _Update on 2020-02-26: That's **one** of Chromium's JSON
+in a number of ways. _Update on 2021-02-26: That's **one** of Chromium's JSON
 parsers._ The timeline could have been:
 
 1. Some developer long ago (perhaps in a yak-shaving hurry) wrote or
@@ -246,7 +246,7 @@ other tools that only speak the latter:
     $ echo '[1,2,/*hello*/3,]' | jsonptr -input-jwcc -compact-output
     [1,2,3]
 
-_Update on 2020-02-26: RapidJSON (and undoubtedly other C++ libraries) also
+_Update on 2021-02-26: RapidJSON (and undoubtedly other C++ libraries) also
 support commas and comments. Part of JWCC's motivation is that it shouldn't be
 hard to tweak existing JSON tools to support it._
 
@@ -260,7 +260,7 @@ have a Go implementation of this format. They call it
 
 ## Frequently Asked Questions
 
-_Update on 2020-02-26: this whole FAQ section was added after this article was
+_Update on 2021-02-26: this whole FAQ section was added after this article was
 originally posted, following discussion at [Hacker
 News](https://news.ycombinator.com/item?id=26224255),
 [/r/programming](https://www.reddit.com/r/programming/comments/lpmlt2/json_with_commas_and_comments/)
@@ -318,7 +318,7 @@ key detection requires `O(N)` memory in the worst case.
 
 That's "JSONC #2" above. It doesn't consider final commas.
 
-_Update on 2020-02-28: Apparently it does allow final commas, but [its brief
+_Update on 2021-02-28: Apparently it does allow final commas, but [its brief
 description](https://code.visualstudio.com/docs/languages/json#_json-with-comments)
 doesn't mention commas at all. There doesn't appear to be a separate
 specification. If it allows commas and comments (but not e.g. unquoted
