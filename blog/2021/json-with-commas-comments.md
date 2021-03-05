@@ -36,8 +36,9 @@ are many extensions - supersets of JSON. Here's just a few (including two
 slightly different extensions both called "JSONC"):
 
 - [JSON5](https://json5.org/)
-- [JSONC](https://komkom.github.io/) #1
-- [JSONC](https://code.visualstudio.com/docs/languages/json#_json-with-comments) #2
+- [JSONC](https://komkom.github.io/) #1 (komkom)
+- [JSONC](https://code.visualstudio.com/docs/languages/json#_json-with-comments)
+  #2 (Visual Studio)
 - [HJSON](https://hjson.github.io/)
 - [HOCON](https://github.com/lightbend/config/blob/master/HOCON.md)
 
