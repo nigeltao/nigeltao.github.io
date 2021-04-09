@@ -11,6 +11,13 @@ re-usable buffers). All-at-once requires more intermediate memory but allows
 substantially more of the image to be decoded in the `zlib`-decompressor's
 fastest code paths._
 
+_Update on 2021-04-09: Wuffs and its PNG decoder is discussed on [Hacker News
+thread #1](https://news.ycombinator.com/item?id=26714831), [Hacker News
+thread #2](https://news.ycombinator.com/item?id=26731305),
+[/r/programming](https://www.reddit.com/r/programming/comments/mld1ob/the_fastest_safest_png_decoder_in_the_world/),
+[/r/rust](https://www.reddit.com/r/rust/comments/mlfhlo/wuffs_png_decoder_faster_than_rust/)
+and [lobste.rs](https://lobste.rs/s/48rqtn/fastest_safest_png_decoder_world)._
+
 
 ## Introduction
 
@@ -69,8 +76,8 @@ baseline speed):
     
     wuffs                                                   1.50x to 2.75x
 
-(†): libpng's "simplified API" doesn't provide a way to ignore the checksum. We
-copy the `verify_checksum` numbers for a 1.00x baseline.
+(†): `libpng`'s "simplified API" doesn't provide a way to ignore the checksum.
+We copy the `verify_checksum` numbers for a 1.00x baseline.
 
 For example, the `77k_8bpp` source image is 160 pixels wide, 120 pixels high
 and its color model is 8 bits (1 byte; a palette index) per pixel. Decoding
@@ -462,12 +469,12 @@ but doesn't say anything else. The comment was [added in
 2013](https://github.com/glennrp/libpng/commit/871b1d0fabee7995383cd6941362b68a03f86e25)
 and is still there in 2021, but the code itself is older.
 
-libpng is also just complicated. As a very rough metric, running `wc -l *.c
-arm/*.c intel/*.c` in libpng's repository counts 35182 lines of code (excluding
-`*.h` header files). Running `wc -l std/png/*.wuffs` in Wuffs' repository
-counts 2110 lines. The former library admittedly implements an encoder, not
-just a decoder, but even after halving the first number, it's still an 8x
-ratio.
+`libpng` is also just complicated. As a very rough metric, running `wc -l *.c
+arm/*.c intel/*.c` in `libpng`'s repository counts 35182 lines of code
+(excluding `*.h` header files). Running `wc -l std/png/*.wuffs` in Wuffs'
+repository counts 2110 lines. The former library admittedly implements an
+encoder, not just a decoder, but even after halving the first number, it's
+still an 8x ratio.
 
 
 ### Patching `zlib`
@@ -523,7 +530,7 @@ but not a lot faster than with vanilla `zlib` (the first set of numbers below).
 'ZLIB_1.2.9' not found (required by /lib/x86_64-linux-gnu/libpng16.so.16)`.
 
 
-### Patching `Go` or `Rust`
+### Patching Go or Rust
 
 Both Go and Rust are successful, modern and memory-safe programming languages
 with significant adoption. However, for existing C/C++ projects, it is easier
@@ -531,7 +538,9 @@ to incorporate Wuffs-the-library, which is transpiled to C (and its C form is
 checked into the repository). It'd be like using any other third-party C/C++
 library, it's just not hand-written C/C++. In comparison, integrating Go or
 Rust code into a C/C++ project involves, at a minimum, setting up additional
-compilers and other build tools.
+compilers and other build tools. _Update on 2021-04-09: Adding Rust to the
+Android Platform is literally [a multi-year
+project](https://security.googleblog.com/2021/04/rust-in-android-platform.html)._
 
 Still, there may very well be some worthwhile follow-up performance work for Go
 or Rust's PNG implementations, based on techniques discussed in this post. For
