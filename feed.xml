@@ -1,9 +1,16 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <link href="https://nigeltao.github.io/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://nigeltao.github.io/" rel="alternate" type="text/html"/>
-  <updated>2021-04-06T00:00:00+00:00</updated>
+  <updated>2021-06-20T00:00:00+00:00</updated>
   <id>https://nigeltao.github.io/feed.xml</id>
   <title type="html">Nigel Tao's blog</title>
+  <entry>
+    <title type="html">Three Points Define an Ellipse</title>
+    <link href="https://nigeltao.github.io/blog/2021/three-points-define-ellipse.html" rel="alternate" type="text/html" title="Three Points Define an Ellipse"/>
+    <published>2021-06-20T00:00:00+00:00</published>
+    <updated>2021-06-20T00:00:00+00:00</updated>
+    <id>https://nigeltao.github.io/blog/2021/three-points-define-ellipse.html</id>
+  </entry>
   <entry>
     <title type="html">The Fastest, Safest PNG Decoder in the World</title>
     <link href="https://nigeltao.github.io/blog/2021/fastest-safest-png-decoder.html" rel="alternate" type="text/html" title="The Fastest, Safest PNG Decoder in the World"/>
