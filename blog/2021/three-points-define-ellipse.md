@@ -1,4 +1,15 @@
-# Three Points Define an Ellipse
+# Three Points (Two Opposing) Define an Ellipse
+
+_Update on 2021-06-21: three (or even four) points in general [do not define an
+ellipse](https://sarcasticresonance.wordpress.com/2012/05/14/how-many-points-does-it-take-to-define/).
+But the additional information that the first and last of the three points are
+at opposite ends do define an ellipse. Equivalently, two on-curve points and
+the center point define an ellipse._
+
+_This blog post also primarily discusses a 4-piece cubic Bézier approximation
+to that ellipse. That ellipse (not just its approximation) is still
+well-defined, but this blog post does not derive a closed form for it. For
+vector graphic rasterization, the Bézier approximation is good enough._
 
 In 2-Dimensional geometry, a sequence of three points `A`, `B` and `C` define a
 fourth point `D = A - B + C` of a parallelogram.

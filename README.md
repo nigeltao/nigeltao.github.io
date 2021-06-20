@@ -17,7 +17,7 @@
 - 2021-01-03 [Fruit Salad Domino](./blog/2021/fruit-salad-domino.md)
 - 2021-02-22 [JSON With Commas and Comments](./blog/2021/json-with-commas-comments.md)
 - 2021-04-06 [The Fastest, Safest PNG Decoder in the World](./blog/2021/fastest-safest-png-decoder.md)
-- 2021-06-20 [Three Points Define an Ellipse](./blog/2021/three-points-define-ellipse.md)
+- 2021-06-20 [Three Points (Two Opposing) Define an Ellipse](./blog/2021/three-points-define-ellipse.md)
 
 
 ## Projects
