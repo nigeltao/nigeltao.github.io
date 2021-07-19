@@ -200,7 +200,13 @@ suggests, there are only two new features:
   unrelated lines.
 - "Comments" lets you have C++-style `/* slash-star block comments */` and `//
   double-slash line comments`, anywhere where 'vanilla' JSON allows whitespace.
-  Line comments must end with a `'\n'` byte, even at the end of the file.
+  Line comments are terminated by a '\n' byte. '\r' bytes are irrelevant. A
+  line comment at the end of the file may omit the final '\n' byte (_Update on
+  2021-07-20: This text regarding '\n' at the end of the file was changed (to
+  no longer be mandatory) so that "123 // no final U+000A byte" is now
+  considered valid JWCC even when parsers are unnecessarily configured to
+  consume the entirety of the input, not just a long enough prefix ("123") to
+  unambiguously produce a valid top-level value_).
 
 To be clear, while every JSON file is valid JWCC, this is a new file format. It
 just happens to be very familiar if you (or your software) already speak JSON.
