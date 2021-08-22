@@ -19,6 +19,7 @@
 - 2021-04-06 [The Fastest, Safest PNG Decoder in the World](./blog/2021/fastest-safest-png-decoder.md)
 - 2021-06-20 [Three Points (Two Opposing) Define an Ellipse](./blog/2021/three-points-define-ellipse.md)
 - 2021-07-20 [Custom eBPF Helpers](./blog/2021/custom-ebpf-helpers.md)
+- 2021-08-22 [Using Go Without Generics](./blog/2021/using-go-without-generics.md)
 
 
 ## Projects
