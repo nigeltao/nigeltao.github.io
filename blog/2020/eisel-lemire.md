@@ -44,7 +44,7 @@ than or equal to `I` and less than `J`. The lower bound is inclusive but the
 upper bound is exclusive.
 
 Let `[I ..= J]` denote a closed range, where the upper bound is now inclusive
-and its the constraint is now "less than or equal to".
+and its constraint is now "less than or equal to".
 
 Let `(X ** Y)` denote `X` raised to the `Y`th power. For example, here are some
 different ways to write "one thousand":
