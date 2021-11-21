@@ -20,15 +20,8 @@ In terms of bytes on the wire (or on disk), JPEG consists of a sequence of
 chunks concatenated together. Each chunk is either a bare marker (two bytes,
 starting with `0xff`) or a marker segment (four or more bytes being a two byte
 marker, again starting with `0xff`, a two byte length and then an additional
-data payload). For example, the opening hex dump of Wikipedia's
-[Example.jpg](https://en.wikipedia.org/wiki/File:Example.jpg) file shows:
-
-- A `ff d8` SOI (Start Of Image) marker.
-- A `ff e0` APP0 marker segment; payload starts with "JFIF".
-- A `ff e1` APP1 marker segment; payload starts with "Exif".
-- A `ff fe` comment marker segment, "Created with etc".
-- A `ff db` DQT (Define Quantization Table) marker segment.
-- The rest of the file (and its chunks) are not shown due to the `-n 5`.
+data payload). Consider the opening hex dump of Wikipedia's
+[Example.jpg](https://en.wikipedia.org/wiki/File:Example.jpg):
 
     $ wget --quiet https://upload.wikimedia.org/wikipedia/en/a/a9/Example.jpg
     $ hd Example.jpg | head -n 5
@@ -37,6 +30,14 @@ data payload). For example, the opening hex dump of Wikipedia's
     00000020  00 2a 00 00 00 08 00 00  00 00 00 00 ff fe 00 17  |.*..............|
     00000030  43 72 65 61 74 65 64 20  77 69 74 68 20 54 68 65  |Created with The|
     00000040  20 47 49 4d 50 ff db 00  43 00 05 03 04 04 04 03  | GIMP...C.......|
+
+The markers in those opening 80 bytes:
+
+- A `ff d8` SOI (Start Of Image) marker.
+- A `ff e0` APP0 marker segment; payload starts with "JFIF".
+- A `ff e1` APP1 marker segment; payload starts with "Exif".
+- A `ff fe` comment marker segment, "Created with etc".
+- A `ff db` DQT (Define Quantization Table) marker segment.
 
 The `file` command line tool also recognizes this as JFIF (with Exif), not just
 JPEG:
