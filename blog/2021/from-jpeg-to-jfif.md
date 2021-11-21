@@ -30,6 +30,7 @@ data payload). For example, the opening hex dump of Wikipedia's
 - A `ff db` DQT (Define Quantization Table) marker segment.
 - The rest of the file (and its chunks) are not shown due to the `-n 5`.
 
+    $ wget --quiet https://upload.wikimedia.org/wikipedia/en/a/a9/Example.jpg
     $ hd Example.jpg | head -n 5
     00000000  ff d8 ff e0 00 10 4a 46  49 46 00 01 01 01 00 48  |......JFIF.....H|
     00000010  00 48 00 00 ff e1 00 16  45 78 69 66 00 00 4d 4d  |.H......Exif..MM|
