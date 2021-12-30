@@ -21,6 +21,7 @@
 - 2021-07-20 [Custom eBPF Helpers](./blog/2021/custom-ebpf-helpers.md)
 - 2021-08-22 [Using Go Without Generics](./blog/2021/using-go-without-generics.md)
 - 2021-11-21 [From JPEG to JFIF via an `io.Writer`](./blog/2021/from-jpeg-to-jfif.md)
+- 2021-12-30 [Inverting a 3x2 Affine Transformation Matrix](./blog/2021/inverting-3x2-affine-transformation-matrix.md)
 
 
 ## Projects
