@@ -1,9 +1,16 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <link href="https://nigeltao.github.io/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://nigeltao.github.io/" rel="alternate" type="text/html"/>
-  <updated>2021-12-30T00:00:00+00:00</updated>
+  <updated>2022-03-28T00:00:00+00:00</updated>
   <id>https://nigeltao.github.io/feed.xml</id>
   <title type="html">Nigel Tao's blog</title>
+  <entry>
+    <title type="html">Premultiplied Alpha</title>
+    <link href="https://nigeltao.github.io/blog/2022/premultiplied-alpha.html" rel="alternate" type="text/html" title="Premultiplied Alpha"/>
+    <published>2022-03-28T00:00:00+00:00</published>
+    <updated>2022-03-28T00:00:00+00:00</updated>
+    <id>https://nigeltao.github.io/blog/2022/premultiplied-alpha.html</id>
+  </entry>
   <entry>
     <title type="html">Inverting a 3x2 Affine Transformation Matrix</title>
     <link href="https://nigeltao.github.io/blog/2021/inverting-3x2-affine-transformation-matrix.html" rel="alternate" type="text/html" title="Inverting a 3x2 Affine Transformation Matrix"/>

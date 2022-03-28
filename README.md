@@ -22,6 +22,7 @@
 - 2021-08-22 [Using Go Without Generics](./blog/2021/using-go-without-generics.md)
 - 2021-11-21 [From JPEG to JFIF via an `io.Writer`](./blog/2021/from-jpeg-to-jfif.md)
 - 2021-12-30 [Inverting a 3x2 Affine Transformation Matrix](./blog/2021/inverting-3x2-affine-transformation-matrix.md)
+- 2022-03-28 [Premultiplied Alpha](./blog/2022/premultiplied-alpha.md)
 
 
 ## Projects
@@ -44,4 +45,4 @@ I don't know who `twitter.com/nigeltao` is, but it's not me.
 
 ---
 
-Copyright 2018-2021 Nigel Tao
+Copyright 2018-2022 Nigel Tao
