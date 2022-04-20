@@ -1,5 +1,9 @@
 # `Mı~Le~Nıε~L`: an English Phonetic Alphabet
 
+_Update on 2022-04-21: if your web browser doesn't have all of the necessary
+fonts (so that some symbols below look like empty boxes), there's [a PDF
+version of this page](./miileeniol.pdf) that will look better._
+
 _Update on 2020-05-09: "phonetic alphabet" here is as in International Phonetic
 Alphabet (spelling words æz ðeɪ saʊnd), not as in NATO Phonetic Alphabet (Alfa,
 Bravo, Charlie, etc.)._
