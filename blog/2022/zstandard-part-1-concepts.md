@@ -192,8 +192,8 @@ the "-" gaps removed:
 Those 551 = 138 + 138 + 138 + 137 Literals bytes can be split into four
 substrings of almost equal length. In the eight row presentation immediately
 above, that's four strips of two rows each. Call those strips LSTRIP 1, LSTRIP
-2, LSTRIP 3 and LSTRIP 4. We'll come back to them in [Part 4: Huffman
-Codes](./zstandard-part-4-huffman.md).
+2, LSTRIP 3 and LSTRIP 4. We'll come back to them in
+[Part 4: Huffman Codes](./zstandard-part-4-huffman.md).
 
 
 ## Matches

@@ -54,9 +54,9 @@ etc
 ```
 
 Other than a `uint32` dictionary ID, most sections of a Zstandard *dictionary*
-are similar to the sections of a Zstandard *file* as discussed in [Part 2:
-Structure](./zstandard-part-2-structure.md). MN is a magic number (0xec30a437
-for dictionaries instead of 0xfd2fb528), followed by the ID.
+are similar to the sections of a Zstandard *file* as discussed in
+[Part 2: Structure](./zstandard-part-2-structure.md). MN is a magic number
+(0xec30a437 for dictionaries instead of 0xfd2fb528), followed by the ID.
 
 Four tables are next. H, T and HD define a Huffman table (and T is an FSE
 table). CMOT, MLT and LLT define Cooked Match Offset, Match Length and Literal

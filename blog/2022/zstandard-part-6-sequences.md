@@ -221,8 +221,8 @@ etc    etc    etc    etc      etc    etc    etc      etc
 
 Reading the LLVBL and LLVBits columns, the resultant Literal Length values are
 (48 + 0b0111), (1 + 0), (20 + 0b0), (16 + 0b1), etc. You might recognize this
-55, 1, 20, 17, etc sequence as the LL (Literal Length) column from [Part 1:
-Concepts](./zstandard-part-1-concepts.md).
+55, 1, 20, 17, etc sequence as the LL (Literal Length) column from
+[Part 1: Concepts](./zstandard-part-1-concepts.md).
 
 Reading both of the LLVBits and LLFBits columns, left-to-right then
 top-to-bottom, the input bitstream would be "101010 0111 0111 ~ 1110 0 01000 1

@@ -47,8 +47,8 @@ are read in the opposite order.
 
 ## Example 1: HUFFMAN BITSTREAM
 
-Here's an example, the HUFFMAN DATA bytes highlighted in [Part 2:
-Structure](./zstandard-part-2-structure.md).
+Here's an example, the HUFFMAN DATA bytes highlighted in
+[Part 2: Structure](./zstandard-part-2-structure.md).
 
 
 ```
@@ -83,8 +83,8 @@ Dropping the leading 0s and the first 1 bit (the sentinel bit):
 ```
 
 Dropping the punctuation (since the bitstream doesn't care about byte
-boundaries) gives the HUFFMAN BITSTREAM. We'll come back to it in [Part 5:
-Finite State Entropy Codes](./zstandard-part-5-fse.md).
+boundaries) gives the HUFFMAN BITSTREAM. We'll come back to it in
+[Part 5: Finite State Entropy Codes](./zstandard-part-5-fse.md).
 
 
 ```
@@ -177,9 +177,9 @@ etc   etc
 
 Concatenate, drop the sentinel bit and byte-boundary punctuation. We'll break
 this longer bitstream snippet over multiple lines, for readability, to give the
-SEQUENCES BITSTREAM. We'll come back to it in [Part 6:
-Sequences](./zstandard-part-6-sequences.md), where what looks like arbitrary
-line breaks will become clearer.
+SEQUENCES BITSTREAM. We'll come back to it in
+[Part 6: Sequences](./zstandard-part-6-sequences.md), where what looks like
+arbitrary line breaks will become clearer.
 
 ```
   1010100101010100

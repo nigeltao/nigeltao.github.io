@@ -162,9 +162,9 @@ The BLOCK DATA can be decomposed further:
   second byte is 0xa8 = 0b10101000, meaning that the following three tables are
   all FSE compressed. Those tables (LLT, CMOT and MLT for Literal Length Table,
   Cooked Match Offset Table and Match Length Table) don't have an explicit byte
-  length. Decoding just unpacks a FSE table three times (see [Part 5: Finite
-  State Entropy Codes](./zstandard-part-5-fse.md)). This takes us up to byte
-  offset 0x1a0 = 416.
+  length. Decoding just unpacks a FSE table three times (see
+  [Part 5: Finite State Entropy Codes](./zstandard-part-5-fse.md)). This takes
+  us up to byte offset 0x1a0 = 416.
 - SEQUENCES DATA takes us from there to the end of the block, calculated above
   to be at byte offset 0x22b = 555. This will be fed to the three tables to
   produce the Sequences.
@@ -179,8 +179,8 @@ except that it's only one FSE table instead of three:
 - T: an FSE table (in this case, taking 4 bytes).
 - HUFFMAN DATA: the data to be fed to that FSE table to produce the Literals.
 
-We'll go into more detail in [Part 4: Huffman
-Codes](./zstandard-part-4-huffman.md).
+We'll go into more detail in
+[Part 4: Huffman Codes](./zstandard-part-4-huffman.md).
 
 ```
 00000000  ++ ++ ++ ++ ++ ++ ++ ++  ++ ++ ++ ++ ++ ++ 30 6f  |++++++++++++++[T|

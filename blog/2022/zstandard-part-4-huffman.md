@@ -94,8 +94,8 @@ codes" distribution satisfying the "sum of fractions" (24/256 + 8/128 + 8/64 +
 
 ## Huffman Application
 
-Recall the LSTREAM 1 BITSTREAM derived in [Part 3:
-Bitstreams](./zstandard-part-3-bitstreams.md).
+Recall the LSTREAM 1 BITSTREAM derived in
+[Part 3: Bitstreams](./zstandard-part-3-bitstreams.md).
 
 ```
 000011011010011011111010110100010010011011100 etc 0101000111001100
@@ -112,8 +112,8 @@ RRRRRRRRoooommmmmeeeoooo___aaaannnndddddd___J etc mmyyyyyy___lllll
 ```
 
 The output of the Huffman code on the LSTREAM 1 BITSTREAM produces the LSTRIP 1
-part of the Literals string (as described in [Part 1:
-Concepts](./zstandard-part-1-concepts.md)):
+part of the Literals string (as described in
+[Part 1: Concepts](./zstandard-part-1-concepts.md)):
 
 ```
 |Romeo and Juliet@Excerpt from Act 2, Scene 2@@JULIET@O ,! wherefore a|

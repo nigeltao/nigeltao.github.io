@@ -159,8 +159,8 @@ red    0x0d    s3
 ```
 
 Dropping the "s" prefixes of the Sym column gives the 122 numbers below, which
-you might recognize as the "Huffman Weights Representation" numbers from [Part
-4: Huffman Codes](./zstandard-part-4-huffman.md).
+you might recognize as the "Huffman Weights Representation" numbers from
+[Part 4: Huffman Codes](./zstandard-part-4-huffman.md).
 
 ```
 0 0 0 0 0 0 0 0 0 0 4 0 0 0 0 0
@@ -174,8 +174,8 @@ you might recognize as the "Huffman Weights Representation" numbers from [Part
 ```
 
 Concatenating the Bitstring column gives the bitstream below, which you might
-recognize as the "HUFFMAN BITSTREAM" from [Part 3:
-Bitstreams](./zstandard-part-3-bitstreams.md).
+recognize as the "HUFFMAN BITSTREAM" from
+[Part 3: Bitstreams](./zstandard-part-3-bitstreams.md).
 
 ```
 001010010100000001010100 etc 000101101100011101111101
@@ -183,17 +183,18 @@ Bitstreams](./zstandard-part-3-bitstreams.md).
 
 To recap, once we have the FSE table given at the top of the page, applying it
 twice (interleaved) to the HUFFMAN BITSTREAM produces the Huffman weights,
-which we can then use to produce the Huffman table as discussed in [Part 4:
-Huffman Codes](./zstandard-part-4-huffman.md). Applying the Huffman table four
-times (to the four separate LSTREAM N BITSTREAMs) produces the Literals.
+which we can then use to produce the Huffman table as discussed in
+[Part 4: Huffman Codes](./zstandard-part-4-huffman.md). Applying the Huffman
+table four times (to the four separate LSTREAM N BITSTREAMs) produces the
+Literals.
 
 
 ## Forward Bitstreams
 
 Once again, storing that FSE table directly would be quite verbose and we can
 be much more compact. In fact, that FSE table can be described in only 4 bytes,
-previously labeled as T in [Part 2:
-Structure](./zstandard-part-2-structure.md).
+previously labeled as T in
+[Part 2: Structure](./zstandard-part-2-structure.md).
 
 ```
 00000000  ++ ++ ++ ++ ++ ++ ++ ++  ++ ++ ++ ++ ++ ++ 30 6f  |++++++++++++++[T|
