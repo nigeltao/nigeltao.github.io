@@ -58,11 +58,11 @@ are similar to the sections of a Zstandard *file* as discussed in [Part 2:
 Structure](./zstandard-part-2-structure.md). MN is a magic number (0xec30a437
 for dictionaries instead of 0xfd2fb528), followed by the ID.
 
-Four tables are next. H, T and HD define a Huffman code table. CMOT, MLT and
-LLT define Cooked Match Offset, Match Length and Literal Length FSE tables, the
-same as the previous discussion for Zstandard files. As before, the byte length
-of these tables aren't explicitly recorded. Processing the dictionary involves
-reading input bytes until the tables are complete.
+Four tables are next. H, T and HD define a Huffman table (and T is an FSE
+table). CMOT, MLT and LLT define Cooked Match Offset, Match Length and Literal
+Length FSE tables, the same as the previous discussion for Zstandard files. As
+before, the byte length of these FSE tables aren't explicitly recorded.
+Processing the dictionary reads input bytes until the FSE tables are complete.
 
 These tables are not fed any bitstreams per se. Instead, blocks in a Zstandard
 file's frames can re-use the tables of previous blocks in that frame or, if

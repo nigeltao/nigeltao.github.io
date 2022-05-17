@@ -45,7 +45,7 @@ written in the LSB least significant bit to MSB most significant bit order and
 are read in the opposite order.
 
 
-## Example 1: Huffman Bitstream
+## Example 1: HUFFMAN BITSTREAM
 
 Here's an example, the HUFFMAN DATA bytes highlighted in [Part 2:
 Structure](./zstandard-part-2-structure.md).
@@ -92,7 +92,7 @@ Finite State Entropy Codes](./zstandard-part-5-fse.md).
 ```
 
 
-## Example 2: LStream 0 Bitstream
+## Example 2: LSTREAM 1 BITSTREAM
 
 Here's another example, the LSTREAM 1 DATA bytes:
 
@@ -139,7 +139,7 @@ Drop the punctuation to give the LSTREAM 1 BITSTREAM. We'll come back to it in
 ```
 
 
-## Example 3: Sequences Bitstream
+## Example 3: SEQUENCES BITSTREAM
 
 We'll finish with a longer example, the SEQUENCES DATA bytes:
 

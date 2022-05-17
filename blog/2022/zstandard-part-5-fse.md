@@ -185,7 +185,7 @@ To recap, once we have the FSE table given at the top of the page, applying it
 twice (interleaved) to the HUFFMAN BITSTREAM produces the Huffman weights,
 which we can then use to produce the Huffman table as discussed in [Part 4:
 Huffman Codes](./zstandard-part-4-huffman.md). Applying the Huffman table four
-times (to the four separate LSTREAM bitstreams) produces the Literals.
+times (to the four separate LSTREAM N BITSTREAMs) produces the Literals.
 
 
 ## Forward Bitstreams
@@ -242,8 +242,8 @@ There are 158 possible values, so 7 bits is too little. 8 bits is sufficient
 but also "too much" in some sense. The obvious encoding wastes 98 out of the
 256 possible 8-bit bitstrings.
 
-Zstandard can use a variable number of bits to encode a 0 ..= 157 value, either
-7 or 8 bits, depending on whether the value is "small" (less than 98). When
+Zstandard uses a variable number of bits to encode a 0 ..= 157 value, either 7
+or 8 bits, depending on whether the value is "small" (less than 98). When
 decoding (and you know the maximum possible value, 157 here), read 8 bits (call
 this the Value Read). If the low 7 bits are less than (255 - 157) = 98 then
 unread that high bit and the Value Decoded is the 7-bit value. Otherwise, the

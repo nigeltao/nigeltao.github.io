@@ -13,7 +13,7 @@ This blog post is one of a seven part series.
 
 ## From Bitstrings to Symbols
 
-Tables map from bitstrings to symbols and for Zstandard's Literal data, there
+Tables convert bitstrings to symbols and for Zstandard's Literal data, there
 are up to 256 symbols. A symbol value of 0x40 naturally corresponds to the
 ASCII '@' character, 0x41 corresponds to 'A', etc. If some of those 256 symbol
 values aren't used, they don't need to be explicitly listed in the mapping.
@@ -136,13 +136,14 @@ separate threads) can be faster than decoding them serially.
 The "bitstring to symbol table" form of the Huffman code, above, is fairly
 verbose. There is a much more efficient representation, given that it is a
 [*canonical* Huffman
-code](https://en.wikipedia.org/wiki/Canonical_Huffman_code) with longer
-bitstrings first. Specifically, longer bitstrings are listed (in lexicographic
-bitstring order) before shorter ones (e.g. 8-bit codes before 7-bit codes) and,
-for a given bitstring length, smaller symbols before larger ones (e.g. out of
-the 7-bit codes, the one for the symbol 0x4f 'O' before for 0x67 'g'). We can
-therefore represent the Huffman code unambiguously just by the bitstring length
-of each of the 256 symbols (with 0 meaning that the symbol isn't present):
+code](https://en.wikipedia.org/wiki/Canonical_Huffman_code) although,
+unusually, with longer bitstrings first. Specifically, longer bitstrings are
+listed (in lexicographic bitstring order) before shorter ones (e.g. 8-bit codes
+before 7-bit codes) and, for a given bitstring length, smaller symbols before
+larger ones (e.g. out of the 7-bit codes, the one for the symbol 0x4f 'O'
+before for 0x67 'g'). We can therefore represent the Huffman code unambiguously
+just by the bitstring length of each of the 256 symbols (with 0 meaning that
+the symbol isn't present):
 
 ```
 Bitstring Length                   Symbol Range (as Hex and ASCII)
@@ -184,12 +185,12 @@ Bitstring Length                   Symbol Range (as Hex and ASCII)
 
 ## Huffman Weights Representation
 
-One last trick is squash the range of these numbers from 0 ..= 8 (a bitstring
-length) to 0 ..= 6 (weights). Non-zero weights W correspond to a bitstring
-length of (MBL + 1 - W). The MBL (maximum bitstring length, in this case 8) can
-be derived solely from the explicit weights (and completeness). The "sum of
-fractions", without the now-implicit last non-zero element, must be between one
-half (inclusive) and one (exclusive).
+One last trick is to squash the range of these numbers from 0 ..= 8 (a
+bitstring length) to 0 ..= 6 (weights). Non-zero weights W correspond to a
+bitstring length of (MBL + 1 - W). The MBL (maximum bitstring length, in this
+case 8) can be derived solely from the explicit weights (and completeness). The
+"sum of fractions", without the now-implicit last non-zero element, must be
+between one half (inclusive) and one (exclusive).
 
 Thus, `romeo.txt.zst` needs to somehow encode these 122 numbers (ranging in 0
 ..= 6) to represent the Huffman code for producing the Literals:

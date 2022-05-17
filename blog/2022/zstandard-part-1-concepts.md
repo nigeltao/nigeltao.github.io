@@ -24,7 +24,7 @@ implementation](https://github.com/facebook/zstd) is open source and its
 repository also includes a second [educational
 decoder](https://github.com/facebook/zstd/tree/dev/doc/educational_decoder)
 implementation, emphasizing clarity instead of performance. The file format
-specification ([RFC 8478](https://datatracker.ietf.org/doc/html/rfc8478) is
+specification ([RFC 8478](https://datatracker.ietf.org/doc/html/rfc8478)) is
 also freely available and well written.
 
 Nonetheless, I like to learn a file format by studying a worked example at the
@@ -176,7 +176,7 @@ length of the string. That length is combined with an offset (the sum of all
 previously seen Literal Lengths) to refer to a substring of the overall
 Literals string: the original input bytes minus all of the matches. Here's the
 551 byte Literals string for `romeo.txt.zst`, the "Literals" column above with
-the "---" gaps removed:
+the "-" gaps removed:
 
 ```
 |Romeo and Juliet@Excerpt from Act 2, Scene 2@@JULIET@O ,! wherefore a|
