@@ -23,6 +23,13 @@
 - 2021-11-21 [From JPEG to JFIF via an `io.Writer`](./blog/2021/from-jpeg-to-jfif.md)
 - 2021-12-30 [Inverting a 3x2 Affine Transformation Matrix](./blog/2021/inverting-3x2-affine-transformation-matrix.md)
 - 2022-03-28 [Premultiplied Alpha](./blog/2022/premultiplied-alpha.md)
+- 2022-05-11 [Zstandard Worked Example Part 1: Concepts](./blog/2022/zstandard-part-1-concepts.md)
+- 2022-05-12 [Zstandard Worked Example Part 2: Structure](./blog/2022/zstandard-part-2-structure.md)
+- 2022-05-13 [Zstandard Worked Example Part 3: Bitstreams](./blog/2022/zstandard-part-3-bitstreams.md)
+- 2022-05-14 [Zstandard Worked Example Part 4: Huffman Codes](./blog/2022/zstandard-part-4-huffman.md)
+- 2022-05-15 [Zstandard Worked Example Part 5: Finite State Entropy Codes](./blog/2022/zstandard-part-5-fse.md)
+- 2022-05-16 [Zstandard Worked Example Part 6: Sequences](./blog/2022/zstandard-part-6-sequences.md)
+- 2022-05-17 [Zstandard Worked Example Part 7: Dictionaries](./blog/2022/zstandard-part-7-dictionaries.md)
 
 
 ## Projects

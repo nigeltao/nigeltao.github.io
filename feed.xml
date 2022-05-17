@@ -1,9 +1,58 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <link href="https://nigeltao.github.io/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://nigeltao.github.io/" rel="alternate" type="text/html"/>
-  <updated>2022-03-28T00:00:00+00:00</updated>
+  <updated>2022-05-17T00:00:00+00:00</updated>
   <id>https://nigeltao.github.io/feed.xml</id>
   <title type="html">Nigel Tao's blog</title>
+  <entry>
+    <title type="html">Zstandard Worked Example Part 7: Dictionaries</title>
+    <link href="https://nigeltao.github.io/blog/2022/zstandard-part-7-dictionaries.html" rel="alternate" type="text/html" title="Zstandard Worked Example Part 7: Dictionaries"/>
+    <published>2022-05-17T00:00:00+00:00</published>
+    <updated>2022-05-17T00:00:00+00:00</updated>
+    <id>https://nigeltao.github.io/blog/2022/zstandard-part-7-dictionaries.html</id>
+  </entry>
+  <entry>
+    <title type="html">Zstandard Worked Example Part 6: Sequences</title>
+    <link href="https://nigeltao.github.io/blog/2022/zstandard-part-6-sequences.html" rel="alternate" type="text/html" title="Zstandard Worked Example Part 6: Sequences"/>
+    <published>2022-05-16T00:00:00+00:00</published>
+    <updated>2022-05-16T00:00:00+00:00</updated>
+    <id>https://nigeltao.github.io/blog/2022/zstandard-part-6-sequences.html</id>
+  </entry>
+  <entry>
+    <title type="html">Zstandard Worked Example Part 5: Finite State Entropy Codes</title>
+    <link href="https://nigeltao.github.io/blog/2022/zstandard-part-5-fse.html" rel="alternate" type="text/html" title="Zstandard Worked Example Part 5: Finite State Entropy Codes"/>
+    <published>2022-05-15T00:00:00+00:00</published>
+    <updated>2022-05-15T00:00:00+00:00</updated>
+    <id>https://nigeltao.github.io/blog/2022/zstandard-part-5-fse.html</id>
+  </entry>
+  <entry>
+    <title type="html">Zstandard Worked Example Part 4: Huffman Codes</title>
+    <link href="https://nigeltao.github.io/blog/2022/zstandard-part-4-huffman.html" rel="alternate" type="text/html" title="Zstandard Worked Example Part 4: Huffman Codes"/>
+    <published>2022-05-14T00:00:00+00:00</published>
+    <updated>2022-05-14T00:00:00+00:00</updated>
+    <id>https://nigeltao.github.io/blog/2022/zstandard-part-4-huffman.html</id>
+  </entry>
+  <entry>
+    <title type="html">Zstandard Worked Example Part 3: Bitstreams</title>
+    <link href="https://nigeltao.github.io/blog/2022/zstandard-part-3-bitstreams.html" rel="alternate" type="text/html" title="Zstandard Worked Example Part 3: Bitstreams"/>
+    <published>2022-05-13T00:00:00+00:00</published>
+    <updated>2022-05-13T00:00:00+00:00</updated>
+    <id>https://nigeltao.github.io/blog/2022/zstandard-part-3-bitstreams.html</id>
+  </entry>
+  <entry>
+    <title type="html">Zstandard Worked Example Part 2: Structure</title>
+    <link href="https://nigeltao.github.io/blog/2022/zstandard-part-2-structure.html" rel="alternate" type="text/html" title="Zstandard Worked Example Part 2: Structure"/>
+    <published>2022-05-12T00:00:00+00:00</published>
+    <updated>2022-05-12T00:00:00+00:00</updated>
+    <id>https://nigeltao.github.io/blog/2022/zstandard-part-2-structure.html</id>
+  </entry>
+  <entry>
+    <title type="html">Zstandard Worked Example Part 1: Concepts</title>
+    <link href="https://nigeltao.github.io/blog/2022/zstandard-part-1-concepts.html" rel="alternate" type="text/html" title="Zstandard Worked Example Part 1: Concepts"/>
+    <published>2022-05-11T00:00:00+00:00</published>
+    <updated>2022-05-11T00:00:00+00:00</updated>
+    <id>https://nigeltao.github.io/blog/2022/zstandard-part-1-concepts.html</id>
+  </entry>
   <entry>
     <title type="html">Premultiplied Alpha</title>
     <link href="https://nigeltao.github.io/blog/2022/premultiplied-alpha.html" rel="alternate" type="text/html" title="Premultiplied Alpha"/>
