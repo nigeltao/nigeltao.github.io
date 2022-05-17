@@ -46,7 +46,9 @@ _Update on 2021-02-26: ["Awesome JSON - What's
 Next?"](https://github.com/json-next/awesome-json-next) is a longer list of
 JSON extensions._
 
-Suprisingly, [YAML](https://yaml.org/) is also a superset of JSON. Not just
+Suprisingly, [YAML](https://yaml.org/) is also a superset of JSON. _Update on
+2022-05-18: YAML is [not a superset of
+JSON](https://john-millikin.com/json-is-not-a-yaml-subset)._ Not just
 conceptually, but also in the sense that valid JSON files are also valid YAML
 files (although there's some divergence about whether duplicate keys are
 legitimate). As a bonus, if you use YAML, then to paraphrase [Jamie
