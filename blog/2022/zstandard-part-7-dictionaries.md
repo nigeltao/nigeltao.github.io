@@ -104,7 +104,10 @@ decompressed bytes.
 
 If you want to read more about compression, try these blogs:
 
-- [Yann Collet](http://fastcompression.blogspot.com/)
+- [Yann Collet](http://fastcompression.blogspot.com/) _Update on 2022-05-24:
+  His posts introducing [Finite State
+  Entropy](http://fastcompression.blogspot.com/2013/12/finite-state-entropy-new-breed-of.html)
+  are particularly relevant._
 - [Richard Geldreich](http://richg42.blogspot.com/)
 - [Fabian "ryg" Giesen](https://fgiesen.wordpress.com/)
 
@@ -140,6 +143,9 @@ previously written ones for:
 - [Deflate](https://github.com/google/wuffs/blob/main/std/deflate/README.md),
   used by GZIP, HTTP, PNG, ZIP, ZLIB and [a zillion other
   things](https://en.wikipedia.org/wiki/Zlib#Applications).
+
+_Update on 2022-05-24: This blog post series is discussed on [Hacker
+News](https://news.ycombinator.com/item?id=31411714)._
 
 
 ---

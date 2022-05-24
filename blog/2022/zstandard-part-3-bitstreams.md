@@ -18,17 +18,19 @@ original decompressed data partly because its decoder's inner loops consume
 bits (1 / 8th of a byte) instead of whole bytes.
 
 Zstandard uses both Huffman and FSE codes. Huffman codes are stateless, in that
-when reading the next bitstring, if "1001" means to emit a 'n' symbol then
+when reading the next bitstring, if "1001" means to emit an 'n' symbol then
 that's what "1001" means regardless of what other bitstrings were seen up until
 then. In comparison, FSE codes are stateful, in that whatever "1001" means can
 depend on previous context.
 
 Because of this statefulness, FSE encoding and FSE decoding write to and read
-from the stream in opposite directions. The total number of compressed bits is
-unknown at the start of encoding, but is known at the start of decoding (if the
-encoder writes it in the file format), so for Zstandard, FSE encoding writes
-bits in the forward direction and FSE decoding (which knows both the start and
-end byte offsets) reads bits backwards.
+from the stream in opposite directions. _Update on 2022-05-24: Specifically,
+encoding processes its input bytes in [back-to-front
+order](https://news.ycombinator.com/item?id=31428620)._ The total number of
+compressed bits is unknown at the start of encoding, but is known at the start
+of decoding (if the encoder writes it in the file format), so for Zstandard,
+FSE encoding writes bits in the forward direction and FSE decoding (which knows
+both the start and end byte offsets) reads bits backwards.
 
 Since FSE decoding reads bits backwards, the overall Zstandard decoder is
 simpler if Huffman codes also read their bits backwards.
@@ -41,8 +43,8 @@ The total number of compressed bits is not necessarily a multiple of 8 (so it
 doesn't necessarily end on a byte boundary even if it starts on one). For the
 bytes in the wire format, the bitstream therefore ends with a 1 bit (called the
 sentinel bit) and padded with 0 bits up until the next end of byte. Bits are
-written in the LSB least significant bit to MSB most significant bit order and
-are read in the opposite order.
+written in the LSB (Least Significant Bit) to MSB (Most Significant Bit) order
+and are read in the opposite order.
 
 
 ## Example 1: HUFFMAN BITSTREAM

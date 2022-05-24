@@ -212,9 +212,9 @@ emitted, a (Match Length 5, Raw Match Offset 9) op would emit "not t".
 As an interesting aside, LZ77 matches are a superset of run length encoding.
 Starting again from "Hamlet: To be or not to be", a (Match Length 5, Raw Match
 Offset 1) op would emit "eeeee". This is a valid match op even though ML is
-greater than RMO and some of the src bytes to copy from only become known after
-the op starts executing. In terms of implementation, this is why LZ77 matches
-aren't always the same as a memcpy call.
+greater than RMO and some of the source bytes to copy from only become known
+after the op starts executing. In terms of implementation, this is why LZ77
+matches aren't always the same as a memcpy call.
 
 "Raw" (and its opposite, "Cooked") are terms just for this blog post series.
 They're not used in the Zstandard spec and source code, but the distinction is
@@ -317,7 +317,7 @@ seq69    5    4   355   352
 ```
 
 The fifth column provides the implicit Raw Match Offset for the explicit Cooked
-Match Offset. The first column provides Sequence numbers for cross-referencing
+Match Offset. The first column provides Sequence Numbers for cross-referencing
 a Sequence with the "Offset Input Literals Matches" table further above. For
 example, seq23's match corresponds to:
 

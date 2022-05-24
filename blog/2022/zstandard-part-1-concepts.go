@@ -123,7 +123,7 @@ var sequences = []struct {
 	matLen int
 }{
 	// This data was derived by instrumenting the zstd source code and decoding
-	// romeo.txt.zstd.
+	// romeo.txt.zst.
 	{55, 5},
 	{1, 6},
 	{20, 6},

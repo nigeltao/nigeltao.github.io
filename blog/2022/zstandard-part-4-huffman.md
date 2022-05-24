@@ -187,7 +187,7 @@ Bitstring Length                   Symbol Range (as Hex and ASCII)
 
 One last trick is to squash the range of these numbers from 0 ..= 8 (a
 bitstring length) to 0 ..= 6 (weights). Non-zero weights W correspond to a
-bitstring length of (MBL + 1 - W). The MBL (maximum bitstring length, in this
+bitstring length of (MBL + 1 - W). The MBL (Maximum Bitstring Length, in this
 case 8) can be derived solely from the explicit weights (and completeness). The
 "sum of fractions", without the now-implicit last non-zero element, must be
 between one half (inclusive) and one (exclusive).

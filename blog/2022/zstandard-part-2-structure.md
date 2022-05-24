@@ -16,7 +16,7 @@ This blog post is one of a seven part series.
 Here's `romeo.txt.zst`:
 
 ```
-$ hd romeo.txt.zstd
+$ hd romeo.txt.zst
 00000000  28 b5 2f fd 64 ae 02 0d  11 00 76 62 5e 23 30 6f  |(./.d.....vb^#0o|
 00000010  9b 03 7d c7 16 0b be c8  f2 d0 22 4b 6b bc 54 5d  |..}......."Kk.T]|
 00000020  a9 d4 93 ef c4 54 96 b2  e2 a8 a8 24 1c 54 40 29  |.....T.....$.T@)|
@@ -162,7 +162,7 @@ The BLOCK DATA can be decomposed further:
   second byte is 0xa8 = 0b10101000, meaning that the following three tables are
   all FSE compressed. Those tables (LLT, CMOT and MLT for Literal Length Table,
   Cooked Match Offset Table and Match Length Table) don't have an explicit byte
-  length. Decoding just unpacks a FSE table three times (see
+  length. Decoding just unpacks an FSE table three times (see
   [Part 5: Finite State Entropy Codes](./zstandard-part-5-fse.md)). This takes
   us up to byte offset 0x1a0 = 416.
 - SEQUENCES DATA takes us from there to the end of the block, calculated above

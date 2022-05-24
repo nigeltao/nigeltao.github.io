@@ -24,8 +24,8 @@ decoded symbols.
 In addition to its symbol, each state also has NB (number of bits) and BL
 (baseline) fields. NB ranges in 0 ..= AL and, unsurprisingly, is the number of
 bits to read from the bitstream after emitting the symbol. If the input
-bitstream has no more bits then output symbol stream has no more symbols. The
-value of those NB bits, as a binary number, is added to BL to give the next
+bitstream has no more bits then the output symbol stream has no more symbols.
+The value of those NB bits, as a binary number, is added to BL to give the next
 state (and therefore, implicitly, the next symbol).
 
 Here's an FSE table (where AL = 5):
@@ -66,13 +66,13 @@ State  Sym     BL  NB
 0x1f    s2   0x10   4
 ```
 
-For example, from the state 0x00, we'd output the symbol s0 and then read 1 bit
+For example, from the state 0x00, we'd emit the symbol s0 and then read 1 bit
 from the bitstream. If that 1-bit bitstring was "1", we'd then move to state
 0x04 + 0b1 = 0x05.
 
-For example, from the state 0x1b, we'd output the symbol s4 and then read 4
-bits from the bitstream. If that 4-bit bitstring was "0010", we'd then move to
-state 0x10 + 0b0010 = 0x12.
+For example, from the state 0x1b, we'd emit the symbol s4 and then read 4 bits
+from the bitstream. If that 4-bit bitstring was "0010", we'd then move to state
+0x10 + 0b0010 = 0x12.
 
 
 ## FSE Application
