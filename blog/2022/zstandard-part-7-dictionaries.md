@@ -104,6 +104,8 @@ decompressed bytes.
 
 If you want to read more about compression, try these blogs:
 
+- [Charles Bloom](http://cbloomrants.blogspot.com/) _Update on 2022-05-24:
+  added this link._
 - [Yann Collet](http://fastcompression.blogspot.com/) _Update on 2022-05-24:
   His posts introducing [Finite State
   Entropy](http://fastcompression.blogspot.com/2013/12/finite-state-entropy-new-breed-of.html)
