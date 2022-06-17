@@ -30,6 +30,7 @@
 - 2022-05-15 [Zstandard Worked Example Part 5: Finite State Entropy Codes](./blog/2022/zstandard-part-5-fse.md)
 - 2022-05-16 [Zstandard Worked Example Part 6: Sequences](./blog/2022/zstandard-part-6-sequences.md)
 - 2022-05-17 [Zstandard Worked Example Part 7: Dictionaries](./blog/2022/zstandard-part-7-dictionaries.md)
+- 2022-06-17 [Go Fonts v2.010](./blog/2022/go-fonts-v2010.md)
 
 
 ## Projects

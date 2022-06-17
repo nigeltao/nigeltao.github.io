@@ -1,9 +1,16 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <link href="https://nigeltao.github.io/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://nigeltao.github.io/" rel="alternate" type="text/html"/>
-  <updated>2022-05-17T00:00:00+00:00</updated>
+  <updated>2022-06-17T00:00:00+00:00</updated>
   <id>https://nigeltao.github.io/feed.xml</id>
   <title type="html">Nigel Tao's blog</title>
+  <entry>
+    <title type="html">Go Fonts v2.010</title>
+    <link href="https://nigeltao.github.io/blog/2022/go-fonts-v2010.html" rel="alternate" type="text/html" title="Go Fonts v2.010"/>
+    <published>2022-06-17T00:00:00+00:00</published>
+    <updated>2022-06-17T00:00:00+00:00</updated>
+    <id>https://nigeltao.github.io/blog/2022/go-fonts-v2010.html</id>
+  </entry>
   <entry>
     <title type="html">Zstandard Worked Example Part 7: Dictionaries</title>
     <link href="https://nigeltao.github.io/blog/2022/zstandard-part-7-dictionaries.html" rel="alternate" type="text/html" title="Zstandard Worked Example Part 7: Dictionaries"/>
