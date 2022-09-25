@@ -32,6 +32,7 @@
 - 2022-05-17 [Zstandard Worked Example Part 7: Dictionaries](./blog/2022/zstandard-part-7-dictionaries.md)
 - 2022-06-17 [Go Fonts v2.010](./blog/2022/go-fonts-v2010.md)
 - 2022-09-04 [Wuffs' Bzip2 Decoder](./blog/2022/wuffs-bzip2-decoder.md)
+- 2022-09-25 [Gamma-Aware Ordered Dithering](./blog/2022/gamma-aware-ordered-dithering.md)
 
 
 ## Projects

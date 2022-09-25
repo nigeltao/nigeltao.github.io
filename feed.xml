@@ -1,9 +1,16 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <link href="https://nigeltao.github.io/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://nigeltao.github.io/" rel="alternate" type="text/html"/>
-  <updated>2022-09-04T00:00:00+00:00</updated>
+  <updated>2022-09-25T00:00:00+00:00</updated>
   <id>https://nigeltao.github.io/feed.xml</id>
   <title type="html">Nigel Tao's blog</title>
+  <entry>
+    <title type="html">Gamma-Aware Ordered Dithering</title>
+    <link href="https://nigeltao.github.io/blog/2022/gamma-aware-ordered-dithering.html" rel="alternate" type="text/html" title="Gamma-Aware Ordered Dithering"/>
+    <published>2022-09-25T00:00:00+00:00</published>
+    <updated>2022-09-25T00:00:00+00:00</updated>
+    <id>https://nigeltao.github.io/blog/2022/gamma-aware-ordered-dithering.html</id>
+  </entry>
   <entry>
     <title type="html">Wuffs' Bzip2 Decoder</title>
     <link href="https://nigeltao.github.io/blog/2022/wuffs-bzip2-decoder.html" rel="alternate" type="text/html" title="Wuffs' Bzip2 Decoder"/>

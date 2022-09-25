@@ -1,0 +1,127 @@
+<html>
+<head>
+<title>Pixelated Images</title>
+<style type="text/css">
+img { image-rendering: pixelated }
+</style>
+</head>
+<body>
+
+<p>These are the <i>pixelated</i> (nearest neighbor scaled) images for the <a
+href="gamma-aware-ordered-dithering.html">Gamma Aware Ordered Dithering</a>
+blog post.</p>
+
+<p>The images are presented with the <code>image-rendering: pixelated</code>
+CSS style. Without that, for the dithered images, web browsers will often blur
+(when up-scaling) the 1 or 2 bits per RGB channel to use a wider set of colors
+- less extreme colors - obscuring the whole "quantizing an image to a small
+number of colors can affect the overall brightness" point that the blog post
+makes.</p>
+
+<h1>1. Checkerboards</h1>
+
+<p>Here is a sequence of square images. For each, the LHS (Left Hand Side) is a
+flat 0x80 medium gray. The RHS (Right Hand Side) is a checkerboard of
+alternating colors. All but the last one alternates 0x00 black and 0xFF white.
+The last one alternates 0x55 dark gray and 0xAA light gray.</p>
+
+<p>To convert hexadecimal to decimal: 0x00 = 0, 0x55 = 85, 0x80 = 128, 0xAA =
+170 and 0xFF = 255. As percentages: these are roughly 0%, 33%, 50%, 67% and
+100%.</p>
+
+<p>All of the images are PNG files. The second and third images have an
+explicit <a href="https://www.w3.org/TR/2003/REC-PNG-20031110/#11gAMA">gamma
+correction</a> chunk. The other images do not.</p>
+
+<figure>
+<img width="512px" height="512px" src="checkerboard.nogamma-00FF.png">
+<figcaption><b>Figure 1a.</b> No explicit gamma, RHS alternates 0x00 and
+	0xFF.</figcaption>
+</figure>
+
+<p>Figure 1b typically looks the same as figure 1a. Browsers will use an
+implicit gamma of 2.2 when there isn't an explicit gamma.</p>
+
+<figure>
+<img width="512px" height="512px" src="checkerboard.gamma2dot2.png">
+<figcaption><b>Figure 1b.</b> Gamma 2.2, RHS alternates 0x00 and
+	0xFF.</figcaption>
+</figure>
+
+<p>Stating an explicit gamma of 1.0 now means that both halves of the square
+are roughly the same brightness (if you squint, or take several steps back from
+your desktop monitor). However, a 1.0 gamma (but still at 8 bits per channel)
+is less able to represent different shades of dark.</p>
+
+<figure>
+<img width="512px" height="512px" src="checkerboard.gamma1dot0.png">
+<figcaption><b>Figure 1c.</b> Gamma 1.0, RHS alternates 0x00 and
+	0xFF.</figcaption>
+</figure>
+
+<p>Here's the baseline image again.</p>
+
+<figure>
+<img width="512px" height="512px" src="checkerboard.nogamma-00FF.png">
+<figcaption><b>Figure 1d.</b> No explicit gamma, RHS alternates 0x00 and 0xFF.
+	(This is the same as figure 1a.)</figcaption>
+</figure>
+
+<p>Replacing the checkerboard's pure-black and pure-black with dark-gray and
+light-gray (i.e. going from 1 to 2 bits per channel) doesn't entirely remove
+the discrepancy, but the two halves are now much closer in brightness.</p>
+
+<figure>
+<img width="512px" height="512px" src="checkerboard.nogamma-55AA.png">
+<figcaption><b>Figure 1e.</b> No explicit gamma, RHS alternates 0x55 and
+	0xAA.</figcaption>
+</figure>
+
+<h1>2. At Mouquin's</h1>
+
+<p>The original image is re-scaled from the Art Institute of Chicago's CC0
+Public Domain Designation licensed photo of <a
+href="https://www.artic.edu/artworks/15401/at-mouquin-s">William Glackens'
+"At Mouquin's"</a>.</p>
+
+<figure>
+<img width="1280px" height="512px" src="gamma-aware-at-mouquins.flat-1.png">
+<figcaption><b>Figure 2a.</b> Left: no dithering (1 bit per RGB channel).
+	Middle: original image.</figcaption>
+</figure>
+
+<figure>
+<img width="1280px" height="512px" src="gamma-aware-at-mouquins.flat-2.png">
+<figcaption><b>Figure 2b.</b> Left: no dithering (2 bits per RGB channel).
+	Middle: original image.</figcaption>
+</figure>
+
+<figure>
+<img width="1280px" height="512px" src="gamma-aware-at-mouquins.flat-3.png">
+<figcaption><b>Figure 2c.</b> Left: no dithering (3 bits per RGB channel).
+	Middle: original image.</figcaption>
+</figure>
+
+<figure>
+<img width="1280px" height="512px" src="gamma-aware-at-mouquins.dither-1.png">
+<figcaption><b>Figure 2d.</b> Left: naive dithering (1 bit per RGB channel).
+	Middle: original image. Right: gamma-aware dithering (1 bit per RGB
+	channel).</figcaption>
+</figure>
+
+<figure>
+<img width="1280px" height="512px" src="gamma-aware-at-mouquins.dither-2.png">
+<figcaption><b>Figure 2e.</b> Left: naive dithering (2 bits per RGB channel).
+	Middle: original image. Right: gamma-aware dithering (2 bits per RGB
+	channel).</figcaption>
+</figure>
+
+<figure>
+<img width="1280px" height="512px" src="gamma-aware-at-mouquins.dither-3.png">
+<figcaption><b>Figure 2f.</b> Left: naive dithering (3 bits per RGB channel).
+	Middle: original image. Right: gamma-aware dithering (3 bits per RGB
+	channel).</figcaption>
+</figure>
+
+</body>
+</html>
