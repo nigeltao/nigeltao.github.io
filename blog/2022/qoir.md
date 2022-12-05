@@ -1,4 +1,4 @@
-# QOIR
+# QOIR: a Fast, Simple, Lossless Image File Format based on QOI
 
 The [QOI lossless image file format](http://qoiformat.org/) was [announced
 about a year
@@ -62,7 +62,7 @@ A meta-lesson from QOI (300 lines of code) and ZPNG (700 lines of code plus a
 zstd dependency which you can substitute an LZ4 dependency instead) is that
 it's not actually that hard to roll your own image file format, if you care
 more about codec speed than compression ratio, or if you have a CPU budget or
-code size budget.
+code size budget. And you don't care about interoperability or wider adoption.
 
 For example, if you have a relatively wimpy camera that streams out a 160×120
 grayscale image, it might be fun to see how far you can push something like

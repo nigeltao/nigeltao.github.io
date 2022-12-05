@@ -5,8 +5,8 @@
   <id>https://nigeltao.github.io/feed.xml</id>
   <title type="html">Nigel Tao's blog</title>
   <entry>
-    <title type="html">QOIR</title>
-    <link href="https://nigeltao.github.io/blog/2022/qoir.html" rel="alternate" type="text/html" title="QOIR"/>
+    <title type="html">QOIR: a Fast, Simple, Lossless Image File Format based on QOI</title>
+    <link href="https://nigeltao.github.io/blog/2022/qoir.html" rel="alternate" type="text/html" title="QOIR: a Fast, Simple, Lossless Image File Format based on QOI"/>
     <published>2022-12-05T00:00:00+00:00</published>
     <updated>2022-12-05T00:00:00+00:00</updated>
     <id>https://nigeltao.github.io/blog/2022/qoir.html</id>
