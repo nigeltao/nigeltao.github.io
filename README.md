@@ -33,13 +33,17 @@
 - 2022-06-17 [Go Fonts v2.010](./blog/2022/go-fonts-v2010.md)
 - 2022-09-04 [Wuffs' Bzip2 Decoder](./blog/2022/wuffs-bzip2-decoder.md)
 - 2022-09-25 [Gamma-Aware Ordered Dithering](./blog/2022/gamma-aware-ordered-dithering.md)
+- 2022-12-05 [QOIR](./blog/2022/qoir.md)
 
 
 ## Projects
 
 - [dumbindent](https://nigeltao.github.io/blog/2020/dumbindent.html), a C formatter
+- [fuse-archive](https://github.com/google/fuse-archive), FUSE file system for archives and compressed files
 - [iconvg](https://github.com/google/iconvg), Icon Vector Graphics
 - [jsonptr](https://nigeltao.github.io/blog/2020/jsonptr.html), a JSON formatter
+- [qoir](https://github.com/nigeltao/qoir), a fast, simple, lossless image file format
+- [sflz4](https://github.com/nigeltao/sflz4), Single File LZ4
 - [rac](https://github.com/google/wuffs/blob/master/doc/spec/rac-spec.md), Random Access Compression
 - [taote](https://github.com/nigeltao/taote), The Acutely Opinionated Terminal Emulator
 - [taowm](https://github.com/nigeltao/taowm), The Acutely Opinionated Window Manager
