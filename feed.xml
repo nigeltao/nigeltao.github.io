@@ -1,9 +1,16 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <link href="https://nigeltao.github.io/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://nigeltao.github.io/" rel="alternate" type="text/html"/>
-  <updated>2022-12-05T00:00:00+00:00</updated>
+  <updated>2023-01-26T00:00:00+00:00</updated>
   <id>https://nigeltao.github.io/feed.xml</id>
   <title type="html">Nigel Tao's blog</title>
+  <entry>
+    <title type="html">Wuffs v0.3 Released</title>
+    <link href="https://nigeltao.github.io/blog/2023/wuffs-v03-released.html" rel="alternate" type="text/html" title="Wuffs v0.3 Released"/>
+    <published>2023-01-26T00:00:00+00:00</published>
+    <updated>2023-01-26T00:00:00+00:00</updated>
+    <id>https://nigeltao.github.io/blog/2023/wuffs-v03-released.html</id>
+  </entry>
   <entry>
     <title type="html">QOIR: a Fast, Simple, Lossless Image File Format based on QOI</title>
     <link href="https://nigeltao.github.io/blog/2022/qoir.html" rel="alternate" type="text/html" title="QOIR: a Fast, Simple, Lossless Image File Format based on QOI"/>

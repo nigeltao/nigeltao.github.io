@@ -34,6 +34,7 @@
 - 2022-09-04 [Wuffs' Bzip2 Decoder](./blog/2022/wuffs-bzip2-decoder.md)
 - 2022-09-25 [Gamma-Aware Ordered Dithering](./blog/2022/gamma-aware-ordered-dithering.md)
 - 2022-12-05 [QOIR: a Fast, Simple, Lossless Image File Format based on QOI](./blog/2022/qoir.md)
+- 2023-01-26 [Wuffs v0.3 Released](./blog/2023/wuffs-v03-released.md)
 
 
 ## Projects
@@ -59,4 +60,4 @@ I don't know who `twitter.com/nigeltao` is, but it's not me.
 
 ---
 
-Copyright 2018-2022 Nigel Tao
+Copyright 2018-2023 Nigel Tao
