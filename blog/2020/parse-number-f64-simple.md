@@ -369,6 +369,13 @@ least `5`). Getting to `[½ .. 1]` is slightly easier, computationally, than
 getting to the `[1 .. 2]` range that a normal `f64` bit-pattern represents, and
 we're usually about to multiply by a power of two anyway.
 
+_Update on 2023-02-04: actually, it's just as easy, and faster, to target the
+`[1 .. 2]` range. See the Wuffs [PR #87
+discussion](https://github.com/google/wuffs/pull/87) and commits
+[d46220ca](https://github.com/google/wuffs/commit/d46220ca0086df2f28be9a91cc392ffd2e220ac1)
+and
+[4d4c3c4c](https://github.com/google/wuffs/commit/4d4c3c4c3c6ea1711fcfc9cd52dfc4bf009c2769)._
+
 Shifting by `(S == 1)` on each repetition is simple, but it's faster (fewer
 repetitions) to take larger shifts based on `decimal_point`, provided that each
 shift still obeys `(S <= 60)`. The right-shifts can overshoot a little, because
