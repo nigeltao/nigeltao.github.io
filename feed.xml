@@ -1,9 +1,23 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <link href="https://nigeltao.github.io/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://nigeltao.github.io/" rel="alternate" type="text/html"/>
-  <updated>2023-01-26T00:00:00+00:00</updated>
+  <updated>2023-02-21T00:00:00+00:00</updated>
   <id>https://nigeltao.github.io/feed.xml</id>
   <title type="html">Nigel Tao's blog</title>
+  <entry>
+    <title type="html">C++ Coroutines Part 2: `co_await` and Fizz Buzz</title>
+    <link href="https://nigeltao.github.io/blog/2023/cpp-coro-part-2-await-fizz-buzz.html" rel="alternate" type="text/html" title="C++ Coroutines Part 2: `co_await` and Fizz Buzz"/>
+    <published>2023-02-21T00:00:00+00:00</published>
+    <updated>2023-02-21T00:00:00+00:00</updated>
+    <id>https://nigeltao.github.io/blog/2023/cpp-coro-part-2-await-fizz-buzz.html</id>
+  </entry>
+  <entry>
+    <title type="html">C++ Coroutines Part 1: `co_yield`, `co_return` and a Prime Sieve</title>
+    <link href="https://nigeltao.github.io/blog/2023/cpp-coro-part-1-yield-return-prime-sieve.html" rel="alternate" type="text/html" title="C++ Coroutines Part 1: `co_yield`, `co_return` and a Prime Sieve"/>
+    <published>2023-02-20T00:00:00+00:00</published>
+    <updated>2023-02-20T00:00:00+00:00</updated>
+    <id>https://nigeltao.github.io/blog/2023/cpp-coro-part-1-yield-return-prime-sieve.html</id>
+  </entry>
   <entry>
     <title type="html">Wuffs v0.3 Released</title>
     <link href="https://nigeltao.github.io/blog/2023/wuffs-v03-released.html" rel="alternate" type="text/html" title="Wuffs v0.3 Released"/>

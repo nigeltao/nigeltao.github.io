@@ -35,6 +35,8 @@
 - 2022-09-25 [Gamma-Aware Ordered Dithering](./blog/2022/gamma-aware-ordered-dithering.md)
 - 2022-12-05 [QOIR: a Fast, Simple, Lossless Image File Format based on QOI](./blog/2022/qoir.md)
 - 2023-01-26 [Wuffs v0.3 Released](./blog/2023/wuffs-v03-released.md)
+- 2023-02-20 [C++ Coroutines Part 1: `co_yield`, `co_return` and a Prime Sieve](./blog/2023/cpp-coro-part-1-yield-return-prime-sieve.md)
+- 2023-02-21 [C++ Coroutines Part 2: `co_await` and Fizz Buzz](./blog/2023/cpp-coro-part-2-await-fizz-buzz.md)
 
 
 ## Projects
