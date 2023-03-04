@@ -5,6 +5,9 @@ This blog post is one of a two part series.
 - [Part 1: `co_yield`, `co_return` and a Prime Sieve](./cpp-coro-part-1-yield-return-prime-sieve.md)
 - [Part 2: `co_await` and Fizz Buzz](./cpp-coro-part-2-await-fizz-buzz.md)
 
+_Update on 2023-03-04: This blog post series is discussed on [Hacker
+News](https://news.ycombinator.com/item?id=34898130)._
+
 
 ## Introduction
 
@@ -17,6 +20,9 @@ choices, roughly speaking:
   work while waiting for things) but is also more complicated (manually saving
   and restoring state).
 
+_Update on 2023-03-04: "is... less efficient" and "is more efficient" should be
+"can be less / more efficient"._
+
 Coroutines, "functions whose execution you can pause", aim to get the best of
 both worlds: programs that look like sync code but performs like async code.
 
@@ -24,6 +30,13 @@ Generally speaking, C++ language design tends to favor efficiency,
 customizability and [the zero-overhead
 principle](https://en.cppreference.com/w/cpp/language/Zero-overhead_principle)
 instead of things like ease of use, safety or "batteries included".
+
+_Update on 2023-03-04: "zero-overhead" isn't an absolute requirement. As the
+WG21/P1063 [Core
+Coroutines](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1063r2.pdf)
+counter-proposal from January 2019 says, "programmers cannot reliably prevent
+[C++20] coroutine-based code from allocating memory". Nonetheless, while not
+unanimously endorsed, C++20 coroutines are the design that shipped._
 
 These are neither "good" or "bad" design principles, but as C++ isn't garbage
 collected and it doesn't come with a runtime system, it does mean that C++
@@ -52,13 +65,18 @@ series of prime numbers: 2, 3, 5, 7, 11, etc.
 
 Last millenium, Doug McIlroy and Ken Thompson [invented Unix
 pipes](https://www.princeton.edu/~hos/frs122/precis/mcilroy.htm) as a way of
-connecting concurrent processes. McIlroy wrote [a page-long C version of the
+connecting concurrent processes. McIlroy _(Update on 2023-03-04: inspired by
+David Gries)_ wrote [a page-long C version of the
 Sieve](https://www.cs.dartmouth.edu/~doug/sieve/sieve.pdf) that uses Unix
 processes and pipes. Per that link, the essence of that program also shows up
 in Tony Hoare's influential [Communicating Sequential
 Processes](https://www.cs.cmu.edu/~crary/819-f09/Hoare78.pdf) (CSP) paper. More
 recently, there's [a 36-line Go version of the
 Sieve](https://go.dev/play/p/iN6HCp_e91p) in the Go playground.
+
+_Update on 2023-03-04: McIlroy's prime sieve (re-implemented in this blog post)
+is not exactly the same as Eratosthenes' prime sieve. Eratosthenes' algorithm
+is substantially more efficient._
 
 That design can be ported to C++ coroutines. The "processes" in CSP are not the
 same as Unix processes. Our program (unlike McIlroy's) is single-threaded and
@@ -91,12 +109,28 @@ int main(int argc, char** argv) {
 }
 ```
 
+_Update on 2023-03-04: Here's how it works:_
+
+- The `source` generator produces 2, 3, 4, 5, 6, 7, 8, 9, etc.
+- The first (filtered) element, 2, kicks off a `filter(g, 2)` generator that
+  knocks out every multiple of 2, leaving 3, 5, 7, 9, 11, 13, 15, 17, etc.
+- The next (filtered) element, 3, kicks off a `filter(g, 3)` generator that
+  knocks out every multiple of 3, leaving 5, 7, 11, 13, 17, 19, 23, 25, etc.
+- The next (filtered) element, 5, kicks off a `filter(g, 5)` generator that
+  knocks out every multiple of 5, leaving 7, 11, 13, 17, 19, 23, 29, 31, etc.
+- And so on.
+
+Each filter generator connects to one upstream producer and one downstream
+consumer, in a pipeline or chain. The number of filters grows over time. After
+the first three dot points above, the chain looks like this: `main - filter(g,
+3) - filter(g, 2) - source`.
+
 To be clear, coroutines aren't necessarily the best (simplest, fastest, etc.)
 way to implement a prime sieve in C++. It's that a prime sieve is a nice way to
 demonstrate C++ coroutines.
 
 For those familiar with C++ [range-based for
-loop](https://en.cppreference.com/w/cpp/language/range-for), that can simplify
+loops](https://en.cppreference.com/w/cpp/language/range-for), that can simplify
 the call site for simple loops, but our `Generator` doesn't bother implementing
 it. One subtlety here is that we pass `Generator` values around (see the
 `std::move(g)`). We don't just iterate over them.
@@ -149,7 +183,7 @@ would also suffice, but we won't discuss `co_await` until part 2.
 
 While a regular function can only return (something of type `RType`, say), and
 only return at most once, a coroutine can do that too but also `co_yield` zero
-or more things (of type `CYType`) before `co_return`ing (something of type
+or more things (of type `CYType`) before `co_return`ing something (of type
 `CRType`) at most once. Just as a regular function could loop forever without
 returning, a coroutine could loop forever, perhaps `co_yield`ing things or
 perhaps not, without `co_return`ing.
@@ -189,7 +223,8 @@ parallelism](https://go.dev/blog/waza-talk).
 Logically, `source` is running its `for (int x = 2; x < end; x++)` loop off on
 its own, occasionally `co_yield`ing a thing. Physically, `source` is called
 once, suspending, returning, and then repeatedly resuming and
-`co_yield`ing/suspending until finishing with a final `co_return`/suspend.
+`co_yield`ing/suspending until the final resume finishes with a
+`co_return`/suspend.
 
 As we'll see further below, in our program, resuming is explicitly triggered
 inside the `Generator::next` method (and `resume` is just a method call). Our
@@ -206,10 +241,10 @@ After the callee returns, the stack frame is no longer needed.
 
 With a coroutine call, such state (function arguments, local variables, etc.)
 is needed even after physically returning. That's therefore held in a
-heap-allocated *coroutine frame*. The coroutine frame also holds some notion of
-"where to resume, inside the coroutine body" plus a customized helper object to
-drive the coroutine. In C++, the pointer to that coroutine frame is represented
-as a `std::coroutine_handle<CustomizedHelper>`.
+*coroutine frame*, usually heap-allocated. The coroutine frame also holds some
+notion of "where to resume, inside the coroutine body" plus a customized helper
+object to drive the coroutine. In C++, the pointer to that coroutine frame is
+represented as a `std::coroutine_handle<CustomizedHelper>`.
 
 I'm not sure why, but that customized helper object is called a "promise" or
 "promise object" (but its type is not a `std::promise`) and the
@@ -220,7 +255,7 @@ Some documentation talks about "coroutine state" instead of "coroutine frame",
 as in: the promise object lives alongside (instead of within) the "coroutine
 frame" (which holds arguments and locals), both of which are within the
 "coroutine state". But I prefer "coroutine frame" to mean the whole thing. See
-also `frame_ptr`, furher below, being a pointer to the (coroutine) frame.
+also `frame_ptr`, further below, being a pointer to the (coroutine) frame.
 
 
 ### `Generator::promise_type`
@@ -232,8 +267,8 @@ it to have certain methods.
 
 For example, our coroutine body says `co_yield x` and the `CYType` (the type of
 `x`) is an `int`, so our promise type needs to have a `yield_value` method that
-takes an `int`. It also has an (implicit) `co_return` statement (but not a
-`co_return foo` statement) so it also needs a `return_void` method that takes
+takes an `int`. It also has an (implicit) `co_return;` statement (but not a
+`co_return foo;` statement) so it also needs a `return_void` method that takes
 no arguments. It also needs `get_return_object`, `initial_suspend` and
 `final_suspend`. Here's the complete `Generator::promise_type` definition:
 
@@ -386,7 +421,7 @@ work, but local variables are buggy.
 
 For example, we can set a breakpoint on the `co_yield x` in the `source`
 coroutine function, but the `x` value doesn't seem to change (printing `x`
-always says 2) and making the breakpoint conditional on `x == 5` means that, in
+always says 2). Making the breakpoint conditional on `x == 5` means that, in
 practice, the breakpoint no longer triggers. Curiously, `info breakpoints` also
 places the breakpoint in the `_Z6sourcei.actor(_Z6sourcei.frame *)` function,
 presumably a compiler-transformed version of the plain `source(int)` function.
@@ -459,9 +494,9 @@ Generator source(int end) {
 ```
 
 In the `x == 5` loop iteration (but before the `co_yield`), our processes (in
-the CSP sense) should be chained like this: `main - filter(3) - filter(2) -
-source`. Recompiling and running in a debugger confirms this: from the bottom
-up, the stack trace shows `main`, `filter` twice and then `source`.
+the CSP sense) should be chained like this: `main - filter(g, 3) - filter(g,
+2) - source`. Recompiling and running in a debugger confirms this: from the
+bottom up, the stack trace shows `main`, `filter` twice and then `source`.
 
 ```
 $ g++ -g -std=c++20 -fcoroutines -fno-exceptions cpp-coro-part-1-yield-return-prime-sieve.cc -o coro1
@@ -536,7 +571,10 @@ But this blog post has hopefully demystified C++20 coroutines' `co_yield` and
 That last bullet point glosses over a lot of potential detail. Our example
 program is relatively simple but, in general, scheduling is a hard problem.
 C++20 doesn't provide a one-size-fits-all solution. It merely provides
-mechanism, not policy.
+mechanism, not policy. _Update on 2023-03-04: Earlier versions of C++
+coroutines [integrated with `std::async` and
+`std::future`](https://stackoverflow.com/a/74524504) but that didn't make it
+into C++20._
 
 This is partly because of the customizability and "no runtime" design goals
 mentioned earlier but also because a high-performance coroutine scheduling

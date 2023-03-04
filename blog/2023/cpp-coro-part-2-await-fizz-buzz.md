@@ -102,12 +102,13 @@ Coro buzz(Scheduler* scheduler, const int buzz_pipe_write_end) {
 The `Coro` type here (discussed further below) plays a similar role to the
 `Generator` type from part 1. Note the `co_await`s here. We're not calling
 [`write`](https://man7.org/linux/man-pages/man2/write.2.html) directly. We're
-doing something that could actually `write` or it could cause our coroutine to
-suspend. Again, details (e.g. what's a `Scheduler`?) are further below.
+doing something that could actually write to the pipe or it could cause our
+coroutine to suspend (if it couldn't write). Again, details (e.g. what's a
+`Scheduler`?) are further below.
 
 In general, C++ coroutines don't have to be cooperatively scheduled (e.g. they
 can run on multiple OS threads), but ours are in this single-threaded program.
-A pipe has a limited capacity (Linux [defaults to 16
+A pipe has limited capacity ([Linux defaults to 16
 pages](https://man7.org/linux/man-pages/man7/pipe.7.html)) so both of the loops
 here will eventually block (and then let the `Scheduler` run other coroutines).
 
@@ -130,8 +131,8 @@ iteration number. The coroutine finishes (`co_return`s) after 20 iterations.
 Note again the `co_await`s here. This time we're saving the result of the
 `co_await etc` expression to a local variable. We need to know whether the pipe
 read a 4-byte or 5-byte packet. For I/O involving network sockets or other
-regular files, we'd need to check for errors, but we'll ignore that here, again
-for simplicity.
+regular files, we'd need to check for errors too, but we'll ignore that here,
+again for simplicity.
 
 ```
 // The result of a "co_await Scheduler::async_io(etc)" call.
@@ -272,9 +273,9 @@ below that the `Scheduler` uses `poll` instead of the more scalable `epoll` or
 ## `Coro`
 
 Recall that, in part 1, the `source` coroutine-function returned a `Generator`
-that the `main` saved as a local variable: `Generator g = source(40);`. It
-saved `g` so that it had something to call `g.next()` on, to pull the next
-value out of the generator (by resuming the coroutine).
+that `main` saved as a local variable: `Generator g = source(40);`. It saved
+`g` so that it had something to call `g.next()` on, to pull the next value out
+of the generator (by resuming the coroutine).
 
 Here, our coroutines aren't `co_yield`ing (or `co_return`ing) anything, so we
 don't need to save that local variable. It's a bare `fizz(etc);` and not `Coro
@@ -388,16 +389,16 @@ Being an awaitable means that you have at least three methods:
   do that here: our `await_suspend` will return `void`.
 - `await_resume` tells you to do whatever you need to do likewise for
   resumption (instead of suspension). If `await_resume` returns type `T` then
-  `co_await expr` also has type `T`. In the code snippets above, `T` is
+  `co_await expr` also has type `T`. In the code snippet further below, `T` is
   `AsyncIOResult`.
 
 For example,
 [`std::suspend_always`](https://en.cppreference.com/w/cpp/coroutine/suspend_always)
-actually implements those three methods (and `await_ready` always returns
-`false`). So you can say `co_await std::suspend_always{}` to unconditionally
-suspend. If you modify e.g. `fizz` in this example program to do just that, it
-will indeed suspend. But absent further code changes, neither the `Scheduler`
-nor anything else will ever `resume` that coroutine.
+implements those three methods (and its `await_ready` always returns `false`).
+So you can say `co_await std::suspend_always{}` to unconditionally suspend. If
+you modify e.g. `fizz` in this example program to do just that, it will indeed
+suspend. But absent further code changes, neither the `Scheduler` nor anything
+else will ever `resume` that coroutine.
 
 For example, `Generator::promise_type::yield_value` in part 1 returned a
 `std::suspend_always` and `co_yield expr` is basically syntactic sugar for
@@ -479,7 +480,7 @@ the FD is ready. `retry` just calls `await_ready` again and, if successful,
 returns the `coroutine_handle` for the `Scheduler` to `resume`.
 
 `await_resume` just passes on the `m_result` set during the last successful
-(not-`EAGAIN`) `await_ready`, whether `await_ready` was implicity called via
+(not-`EAGAIN`) `await_ready`, whether `await_ready` was implicitly called via
 `co_await` or explicitly called via `retry`.
 
 
@@ -616,9 +617,9 @@ If we changed the signature by adding a `&&`...
 Generator filter(Generator&& g, int prime)
 ```
 
-The code actually still *compiles* but it will crash at runtime. The coroutine
-frame now only holds a (dangling) *reference* to a `Generator`. It doesn't hold
-(and keep alive) the `Generator` itself.
+The code still *compiles* but it will crash at runtime. The coroutine frame now
+only holds a (dangling) *reference* to a `Generator`. It doesn't hold (and keep
+alive) the `Generator` itself.
 
 Even if this cannot be a compiler error, hopefully we'll still get better
 tooling to catch these sorts of mistakes, as the C++ community gains more
@@ -630,9 +631,10 @@ coroutine experience and the ecosystem evolves.
 This blog post has hopefully demystified C++20 coroutines' `co_await` operator:
 
 - `co_await expr` marks a *potential* suspension point.
-- The `expr`, an awaitable, is asked whether to suspend or continue. Either
-  way, there's a hook to run some custom code, e.g. attempt some non-blocking
-  I/O or integrate with a custom scheduler.
+- The `expr`, an awaitable _(Update on 2023-03-04: glossing over the optional
+  `await_transform` mechanism)_, is asked whether to suspend or continue.
+  Either way, there's a hook to run some custom code, e.g. attempt some
+  non-blocking I/O or integrate with a custom scheduler.
 - Once again, it is up to the program (or its non-standard libraries) to
   explicitly `resume` a suspended coroutine.
 - There's also a hook, when resuming, to determine the value of the overall
@@ -642,7 +644,11 @@ Recall that the C++ language and standard library gives you a *coroutine API
 construction kit* and it's up to the programmer or non-standard libraries to
 provide an ergonomic, higher-level *coroutine API*.
 [lewissbaker/cppcoro](https://github.com/lewissbaker/cppcoro) is one such
-library, although its I/O system is currently Windows-only.
+library, although its I/O system is currently Windows-only. _Update on
+2023-03-04: see also [facebook/folly's
+experimental/coro](https://github.com/facebook/folly/tree/main/folly/experimental/coro)
+but note again its [cautions around lambdas and
+lifetimes](https://github.com/facebook/folly/tree/main/folly/experimental/coro#lambdas)._
 
 These higher-level libraries should probably also have some ability to (safely)
 cancel running coroutines (e.g. after timing out or are no longer needed). And
