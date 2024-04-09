@@ -37,6 +37,7 @@
 - 2023-01-26 [Wuffs v0.3 Released](./blog/2023/wuffs-v03-released.md)
 - 2023-02-20 [C++ Coroutines Part 1: `co_yield`, `co_return` and a Prime Sieve](./blog/2023/cpp-coro-part-1-yield-return-prime-sieve.md)
 - 2023-02-21 [C++ Coroutines Part 2: `co_await` and Fizz Buzz](./blog/2023/cpp-coro-part-2-await-fizz-buzz.md)
+- 2024-04-10 [Rook's Law - There's Always a Limit](./blog/2024/rooks-law.md)
 
 
 ## Projects
@@ -62,4 +63,4 @@ I don't know who `twitter.com/nigeltao` is, but it's not me.
 
 ---
 
-Copyright 2018-2023 Nigel Tao
+Copyright 2018-2024 Nigel Tao

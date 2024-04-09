@@ -1,9 +1,16 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <link href="https://nigeltao.github.io/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://nigeltao.github.io/" rel="alternate" type="text/html"/>
-  <updated>2023-02-21T00:00:00+00:00</updated>
+  <updated>2024-04-10T00:00:00+00:00</updated>
   <id>https://nigeltao.github.io/feed.xml</id>
   <title type="html">Nigel Tao's blog</title>
+  <entry>
+    <title type="html">Rook's Law - There's Always a Limit</title>
+    <link href="https://nigeltao.github.io/blog/2024/rooks-law.html" rel="alternate" type="text/html" title="Rook's Law - There's Always a Limit"/>
+    <published>2024-04-10T00:00:00+00:00</published>
+    <updated>2024-04-10T00:00:00+00:00</updated>
+    <id>https://nigeltao.github.io/blog/2024/rooks-law.html</id>
+  </entry>
   <entry>
     <title type="html">C++ Coroutines Part 2: `co_await` and Fizz Buzz</title>
     <link href="https://nigeltao.github.io/blog/2023/cpp-coro-part-2-await-fizz-buzz.html" rel="alternate" type="text/html" title="C++ Coroutines Part 2: `co_await` and Fizz Buzz"/>
