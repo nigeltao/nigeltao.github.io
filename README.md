@@ -38,6 +38,11 @@
 - 2023-02-20 [C++ Coroutines Part 1: `co_yield`, `co_return` and a Prime Sieve](./blog/2023/cpp-coro-part-1-yield-return-prime-sieve.md)
 - 2023-02-21 [C++ Coroutines Part 2: `co_await` and Fizz Buzz](./blog/2023/cpp-coro-part-2-await-fizz-buzz.md)
 - 2024-04-10 [Rook's Law - There's Always a Limit](./blog/2024/rooks-law.md)
+- 2024-04-14 [XZ/LZMA Worked Example Part 1: Range Coding](./blog/2024/xz-lzma-part-1-range-coding.md)
+- 2024-04-15 [XZ/LZMA Worked Example Part 2: A Complete Toy Range Coder](./blog/2024/xz-lzma-part-2-complete-toy-range-coder.md)
+- 2024-04-16 [XZ/LZMA Worked Example Part 3: Literal-Only LZMA](./blog/2024/xz-lzma-part-3-literal-only-lzma.md)
+- 2024-04-17 [XZ/LZMA Worked Example Part 4: Lempel-Ziv, Markov-chain](./blog/2024/xz-lzma-part-4-lempel-ziv-markov-chain.md)
+- 2024-04-18 [XZ/LZMA Worked Example Part 5: XZ](./blog/2024/xz-lzma-part-5-xz.md)
 
 
 ## Projects
