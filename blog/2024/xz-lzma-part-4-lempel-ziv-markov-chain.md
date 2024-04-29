@@ -230,15 +230,13 @@ state differs.
 
 The distance encoding starts with a 6-bym "Slot" value, which determines how
 many further byms are needed. Once again, decoding the Slot uses a binary tree
-of probabilities.
+of probabilities. Well, four binary trees, each of depth 6. Which tree to use
+depends on that `min(len-2, 3)` mentioned above.
 
-For small Slot values, there are up to 5 extra byms. The probabilities to use
-and update for those byms depend on that `min(len-2, 3)` mentioned above. For
-large Slot values, there are `N` extra byms. The first `(N - 4)` of them are
-encoded with a fixed 50% probability and the remaining 4 byms have
-context-dependent varying probability. The largest encodable
-distance-biased-by-1 is `0xFFFF_FFFF`, a (2
-+ 26 + 4) bit number.
+For small Slot values, there are up to 5 extra byms. For large Slot values,
+there are `N` extra byms. The first `(N - 4)` of them are encoded with a fixed
+50% probability and the remaining 4 byms have varying probability. The largest
+encodable distance-biased-by-1 is `0xFFFF_FFFF`, a (2 + 26 + 4) bit number.
 
 ```
 Slot (decimal)   Distance (binary), biased by 1        Extra byms
@@ -274,7 +272,7 @@ has its own "xxxx" binary tree probabilities. The trees have different sizes
 "yyyy" means up-to-26 byms. Each has a fixed 50% probability.
 
 "zzzz" means four byms encoded with a "reverse" binary tree. All Slots use the
-same for-"zzzz" binary tree probabilities, sometimes called the "align"
+same for-"zzzz" binary tree probabilities, sometimes called the "aligned"
 probabilities.
 
 "Reverse" binary tree just means that the value's bits are read in LSB to MSB
@@ -374,12 +372,12 @@ and the prev byte is 'o'.
 The 8-levels-deep binary tree of probabilities used during `literal =
 decodeLiteral()` depend on the decoder position (combined with the `lp`
 parameter) and the prev byte (combined with the `lc` parameter). It turns out
-that there's not just *one* tree for that, but *three* (let's label them I, J
-and K). I is for when `State < 7` and J and K otherwise. Which of J and K you
+that there's not just *one* tree for that, but *three* (let's label them J, K
+and L). I is for when `State < 7` and K and L otherwise. Which of K and L you
 use depends, as you're walking those 8 levels, on whether the corresponding 7th
 (high), 6th (second-high), etc. bit of the match byte is 0 or 1. Furthermore,
 if the 7th, 6th, etc. bit of the literal byte you're decoding does not equal
-the corresponding bit of the match byte, then drop back to the I tree for the
+the corresponding bit of the match byte, then drop back to the J tree for the
 remainder of the "decode a literal" step.
 
 This is all very fiddly and non-obvious. But, again, presumably somebody did

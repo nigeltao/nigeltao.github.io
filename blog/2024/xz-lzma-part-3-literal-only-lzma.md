@@ -29,10 +29,11 @@ independent probabilities:
 - The first 1 is whether the high 0x80 bit is 0. For ASCII text, this
   probability will be big.
 - The next 2 is for the second-high 0x40 bit.
-- The next 4 is for the second-high 0x20 bit.
-- The next 8 is for the third-high 0x10 bit.
-- ...
-- The next 64 is for the second-low 0x02 bit.
+- The next 4 is for the third-high 0x20 bit.
+- The next 8 is for the fourth-high 0x10 bit.
+- The next 16 is for the fifth-high 0x08 bit.
+- The next 32 is for the sixth-high 0x04 bit.
+- The next 64 is for the seventh-high (second-low) 0x02 bit.
 - The next 128 is for the low 0x01 bit.
 
 Expanding on "The next 2 is for the second-high 0x40 bit", these probabilities
@@ -103,7 +104,7 @@ That's all very well for ASCII text, one byte per character. What if you have
 UTF-8 encoded Greek text, two bytes per character? It compresses better to use
 a different array-of-256 bit-probabilities for even-position and odd-position
 bytes. What if you have 4-byte aligned binary data like little-endian float32
-values or ARM32 opcodes?
+values or ARM32 instructions?
 
 LZMA tracks an array of `(1 << lp)` byteProbs (not just a single byteProbs) to
 capture this contextuality. The `lp` parameter stands for Literal Position.
@@ -125,15 +126,15 @@ pretend that we're coding bytes literally, one at a time, and that we know the
 decoded byte size up-front (so that we don't need an explicit EOS).
 
 Before we trigger "decode a literal (byte)", we need to know whether we are
-decoding a LITERAL or NON-LITERAL op (NON-LITERAL means an LZ back-reference or
-EOS). Again, this yes-or-no information is another bym in the coded bym stream,
-with its own probability. Or, as you might have guessed, it has its own array
-of probabilities. Just like how the `lp` parameter represents how much we care
-about the decoder *position* (how many bytes of decompressed data we've
-reconstituted so far) for *LITERAL* ops, there's a `pc` parameter (it stands
-for Position Bits). It also measures "how many low bits of the decoder position
-do we care about", but it's about the "LITERAL or NON-LITERAL op" question, not
-about "which of the literal byteProb arrays to use" question.
+decoding a LITERAL or NON-LITERAL op (NON-LITERAL means EOS or an LZ
+back-reference). Again, this yes-or-no information is another bym in the coded
+bym stream, with its own probability. Or, as you might have guessed, it has its
+own array of probabilities. Just like how the `lp` parameter represents how
+much we care about the decoder *position* (how many bytes of decompressed data
+we've reconstituted so far) for *LITERAL* ops, there's a `pc` parameter (it
+stands for Position Bits). It also measures "how many low bits of the decoder
+position do we care about", but it's about the "LITERAL or NON-LITERAL op"
+question, not about "which of the literal byteProb arrays to use" question.
 
 Ignoring LZ ops (and error handling) for now, the bulk of LZMA decoding is a
 simple loop (building on `decodeByte`, which builds on `decodeBit`):
@@ -272,7 +273,7 @@ $ go run script/litonlylzma.go -decode < foo.dat > /dev/null
 etc.
 ```
 
-The first column is all zeroes (it's all Literal ops). The second column is
+The first column is all zeroes (it's all LITERAL ops). The second column is
 also all zeros (it's ASCII). The right 8 columns match the hex dump of the
 original (and decompressed) text:
 

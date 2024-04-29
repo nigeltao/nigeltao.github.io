@@ -141,8 +141,8 @@ next four bytes are a CRC-32/IEEE (yes, 32) checksum of the previous two bytes
 The next eight bytes are a block header `"02 00 21 01 16 00 00 00"`, which is
 padded and aligned to 4-byte boundaries (double-words). The `"02"` is the
 number of double-words. The `"00"` is block flags, meaning no post-processing
-filters (only one "base compression" filter) and no overall compressed size or
-overall decompressed size is recorded. `"21 01"` means that that base
+filters (and only one "base compression" filter) and no overall compressed size
+or overall decompressed size is recorded. `"21 01"` means that that base
 compression filter is LZMA2 and its properties occupy one byte. `"16"` is that
 byte, meaning a dictionary size of `0x80_0000` (see section "5.3.1. LZMA2" of
 [the XZ spec](https://tukaani.org/xz/xz-file-format.txt) for the formula).
@@ -231,8 +231,11 @@ a very precise range (expressed in base-256 digits).
 
 ## Studying Code
 
-That wraps up deconstructing an XZ or LZMA file. If you want to look at some
-real code, the lzma-sdk repo has [a reference LZMA
+That wraps up deconstructing an XZ or LZMA file. If you want specifications,
+here's the [XZ spec](https://tukaani.org/xz/xz-file-format.txt) and the [LZMA
+spec](https://raw.githubusercontent.com/jljusten/LZMA-SDK/781863cdf592da3e97420f50de5dac056ad352a5/DOC/lzma-specification.txt).
+
+If you want to look at some real code, the lzma-sdk repo has [a reference LZMA
 implementation](https://github.com/jljusten/LZMA-SDK/blob/781863cdf592da3e97420f50de5dac056ad352a5/CPP/7zip/Bundles/LzmaSpec/LzmaSpec.cpp).
 It reads from and writes to a C/C++ `FILE *` as a "one-shot" API and does not
 support resumable streaming I/O.

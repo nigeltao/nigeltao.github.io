@@ -45,7 +45,7 @@ For example, `[0.5, 0.625)` are those numbers that are at least ½ and less than
 ⅝. This example (and most of this blog post) uses base-10 decimal digits (the
 digits 0, 1, 2, ..., 9), which humans are most familiar with. Computers work
 better with powers of two, especially base-2 (binary, bit-based) or base-256
-(byte-based). The same `[½, ⅝)` range could also be written as `[0b0.1,
+(byte-based). The same `[0.5, 0.625)` range could also be written as `[0b0.1,
 0b0.101)` or `[0b0.100, 0b0.101)` or `[0x0.80, 0x0.A0)`.
 
 Let's also introduce some "no-op underscores", so that `0.834626841674073` is
@@ -55,18 +55,18 @@ base-16 (hexadecimal) digits.
 
 The `[lb, ub)` pair representation is equivalent to a `(lb ++ width)` pair
 representation, where `width = (ub - lb)`. Many discussions of *range* coding
-use the term *range* instead of *width*, but *range* is a [reserved keyword in
-the Go programming language](https://go.dev/ref/spec#Keywords), so I'm going to
-use *width* in my runnable code snippets.
+use the term *range* instead of *width*, but *range* is a reserved keyword in
+the Go programming language, so I'm going to use *width* in my runnable code
+snippets.
 
 The width can be implicit. Let `«834626841»` (which you can think of as a
-"digit string" with length 9) denote a lowerBound of 0.834626841 and an upper
-bound of 1e-9, where 9 is that string length. That range is equivalent to
+"digit string" with length 9) denote a lowerBound of `0.834626841` and a width
+of `1e-9`, where 9 is that string length. That range is equivalent to
 `[0.834626841, 0.834626842)`, where the two bounds differ in their last digit.
 
 Note that trailing zeroes matter. `«123»` and `«1230»` are different ranges,
-even though 0.123 and 0.1230 are the same numbers. Those two ranges have larger
-and smaller  widths: `(0.123 ++ 1e-3)` and `(0.1230 ++ 1e-4)`.
+even though `0.123` and `0.1230` are the same numbers. Those two ranges have
+larger and smaller  widths: `(0.123 ++ 1e-3)` and `(0.1230 ++ 1e-4)`.
 
 Note also that `«123»` being a "prefix" of `«123456»` means that the first
 range completely contains the second range. The less precise `«123»` is a
@@ -90,7 +90,7 @@ base-256 digits for LZMA) and produces a symbol stream.
 
 Wikipedia's [range coding](https://en.wikipedia.org/wiki/Range_coding) article
 discusses a 3-symbol example ('A', 'B', EOF) but LZMA uses a simpler 2-symbol
-stream (and "End Of File" is often implicit, as the byte length of the
+stream and "End Of File" is often implicit, as the byte length of the
 uncompressed text (after decoding step 1) is transmitted separately.
 
 A 2-symbol stream is a bit stream but, in order to disambiguate compressed
@@ -128,9 +128,9 @@ in"](https://www.youtube.com/watch?v=LhF_56SxrGk), reading more digits from
 your treasure map, narrowing the treasure-prefix range's width by a factor of
 10.
 
-You'll also keep a *coverage range* that always that always contains (covers)
-the *entire* treasure-prefix range (a range has a width; it's not a single
-number) and therefore always contains the actual treasure range.
+You'll also keep a *coverage range* that always contains (covers) the *entire*
+treasure-prefix range (a range has a width; it's not a single number) and
+therefore always contains the actual treasure range.
 
 Each iteration, your coverage range gets narrower. Some arithmetic will tell
 you how to split your coverage range into two parts, maybe of unequal size, but
@@ -173,7 +173,7 @@ addresses both concerns.
 You conceptually track two lower bounds (coverage and treasure-prefix) but, in
 practice, only track the difference between them. Remember that the
 treasure-prefix range is always completely within the coverage range, and the
-treasure-prefix has non-zero range, so an invariant is that this difference is
+treasure-prefix has non-zero width, so an invariant is that this difference is
 strictly less than the coverage width.
 
 We can also set the treasure-prefix width implicitly to always be 1 ZLU (Zoom
