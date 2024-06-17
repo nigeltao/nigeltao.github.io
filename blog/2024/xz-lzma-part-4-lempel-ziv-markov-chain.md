@@ -23,8 +23,8 @@ pair, meaning to copy `length` bytes from `distance` bytes ago, instead of
 being encoded as 5 separate literal bytes.
 
 Like my [zstd worked
-example](../2022/zstandard-part-1-concepts.md#lempel-ziv-77), also from some
-years ago, we can partition the original `romeo.txt` into literal bytes and
+example](../2022/zstandard-part-1-concepts.md#lempel-ziv-77) from a few years
+ago, we can partition the original `romeo.txt` into literal bytes and
 Lempel-Ziv matches. The ‘\n’ new line bytes in the original text have been
 replaced by '@' at signs to help distinguish them from ' ' spaces and '.'
 periods.
@@ -266,8 +266,8 @@ Slot (decimal)   Distance (binary), biased by 1        Extra byms
 ```
 
 "xxxx" means up-to-5 byms are encoded with a "reverse" binary tree. Each Slot
-has its own "xxxx" binary tree probabilities. The trees have different sizes
-(number of levels), ranging from 1 to 5 inclusive.
+has its own "xxxx" binary tree probabilities. The trees have different depths,
+ranging from 1 to 5 inclusive.
 
 "yyyy" means up-to-26 byms. Each has a fixed 50% probability.
 
@@ -373,7 +373,7 @@ The 8-levels-deep binary tree of probabilities used during `literal =
 decodeLiteral()` depend on the decoder position (combined with the `lp`
 parameter) and the prev byte (combined with the `lc` parameter). It turns out
 that there's not just *one* tree for that, but *three* (let's label them J, K
-and L). I is for when `State < 7` and K and L otherwise. Which of K and L you
+and L). J is for when `State < 7` and K and L otherwise. Which of K and L you
 use depends, as you're walking those 8 levels, on whether the corresponding 7th
 (high), 6th (second-high), etc. bit of the match byte is 0 or 1. Furthermore,
 if the 7th, 6th, etc. bit of the literal byte you're decoding does not equal

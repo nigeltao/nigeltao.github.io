@@ -131,7 +131,7 @@ back-reference). Again, this yes-or-no information is another bym in the coded
 bym stream, with its own probability. Or, as you might have guessed, it has its
 own array of probabilities. Just like how the `lp` parameter represents how
 much we care about the decoder *position* (how many bytes of decompressed data
-we've reconstituted so far) for *LITERAL* ops, there's a `pc` parameter (it
+we've reconstituted so far) for *LITERAL* ops, there's a `pb` parameter (it
 stands for Position Bits). It also measures "how many low bits of the decoder
 position do we care about", but it's about the "LITERAL or NON-LITERAL op"
 question, not about "which of the literal byteProb arrays to use" question.
