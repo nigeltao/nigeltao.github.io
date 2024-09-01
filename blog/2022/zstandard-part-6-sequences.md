@@ -237,13 +237,25 @@ FSE state transition. Once (FBits) to determine the next state relative to the
 F-Baseline and once (VBits) to determine the state's value relative to the
 V-Baseline.
 
-One final detail is that all six bitstreams are interleaved in this order:
-CMOVBits, MLVBits, LLVBits, LLFBits, MLFBits, CMOFBits. For `romeo.txt.zst`,
-the bitstreams are:
+All six bitstreams are interleaved, in this order: CMOVBits, MLVBits, LLVBits,
+LLFBits, MLFBits, CMOFBits.
+
+_Update on 2024-09-01: We also start by reading the LLFBits column, the fourth
+of that six. For some historical-accidental reason (that's far too late to
+fix), the next two bitstreams have swapped order but only on the very first
+iteration: the first three entries are LLFBits, CMOFBits and then MLFBits.
+After that, whole groups of six entries are read in the order in the previous
+paragraph, finishing with CMOVBits, MLVBits and LLVBits. That's the overall
+order they're read when decoding, which is the opposite of the overall order
+they're written when encoding._
+
+For `romeo.txt.zst`, the bitstreams are:
 
 ```
 CMOVBits  MLVBits  LLVBits  LLFBits  MLFBits  CMOFBits
-                             101010    01010     10100
+                             101010
+                                                 01010
+                                       10100
    11010        ~     0111     0111        1       111
      010        ~        ~     1110      001     01111
    00100        ~        0    01000       11       101
@@ -254,14 +266,16 @@ CMOVBits  MLVBits  LLVBits  LLFBits  MLFBits  CMOFBits
 ```
 
 In this case, the LL, ML and CMO tables' AL (Accuracy Log) values are 6, 5
-and 5. The first row shows reading AL bits for each of the three FSE state
-machines, giving the initial states.
+and 5. The first three rows shows reading AL bits for each of the three FSE
+state machines, in historical-accidental order, giving the initial states.
 
 Concatenating the bits in each row gives:
 
 ```
 CMOVBits  MLVBits  LLVBits  LLFBits  MLFBits  CMOFBits     ConcatenatedBits
-                             101010    01010     10100     1010100101010100
+                             101010                                  101010
+                                                 01010                01010
+                                       10100                          10100
    11010        ~     0111     0111        1       111    11010011101111111
      010        ~        ~     1110      001     01111      010111000101111
    00100        ~        0    01000       11       101     0010000100011101

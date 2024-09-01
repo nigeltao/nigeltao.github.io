@@ -184,7 +184,9 @@ SEQUENCES BITSTREAM. We'll come back to it in
 arbitrary line breaks will become clearer.
 
 ```
-  1010100101010100
+            101010
+             01010
+             10100
  11010011101111111
    010111000101111
   0010000100011101
