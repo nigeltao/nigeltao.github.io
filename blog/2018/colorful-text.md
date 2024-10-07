@@ -84,6 +84,10 @@ instance is single backslashed because it's only in the Vim macro, and escapes
 (gets you out of) Vim's insert mode. The subsequent `FXcl` encodes Vim commands
 that sets you up to edit the placeholder "X" message.
 
+_Update on 2024-10-07: if the ANSI color codes are hard to remember, my
+colleague [Izidor Matušov] notes that printf'ing colorful emoji (e.g. Unicode's
+various hearts: 💙, 💚, 💛, etc) will also stand out in a wall of log text._
+
 
 ## Dialogue
 
