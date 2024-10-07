@@ -1,9 +1,16 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <link href="https://nigeltao.github.io/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://nigeltao.github.io/" rel="alternate" type="text/html"/>
-  <updated>2024-08-11T00:00:00+00:00</updated>
+  <updated>2024-10-06T00:00:00+00:00</updated>
   <id>https://nigeltao.github.io/feed.xml</id>
   <title type="html">Nigel Tao's blog</title>
+  <entry>
+    <title type="html">Go Embedding and Backwards Compatibility</title>
+    <link href="https://nigeltao.github.io/blog/2024/go-embedding-back-compat.html" rel="alternate" type="text/html" title="Go Embedding and Backwards Compatibility"/>
+    <published>2024-10-06T00:00:00+00:00</published>
+    <updated>2024-10-06T00:00:00+00:00</updated>
+    <id>https://nigeltao.github.io/blog/2024/go-embedding-back-compat.html</id>
+  </entry>
   <entry>
     <title type="html">JPEG Chroma Upsampling</title>
     <link href="https://nigeltao.github.io/blog/2024/jpeg-chroma-upsampling.html" rel="alternate" type="text/html" title="JPEG Chroma Upsampling"/>

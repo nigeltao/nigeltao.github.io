@@ -44,6 +44,7 @@
 - 2024-04-17 [XZ/LZMA Worked Example Part 4: Lempel-Ziv, Markov-chain](./blog/2024/xz-lzma-part-4-lempel-ziv-markov-chain.md)
 - 2024-04-18 [XZ/LZMA Worked Example Part 5: XZ](./blog/2024/xz-lzma-part-5-xz.md)
 - 2024-08-11 [JPEG Chroma Upsampling](./blog/2024/jpeg-chroma-upsampling.md)
+- 2024-10-06 [Go Embedding and Backwards Compatibility](./blog/2024/go-embedding-back-compat.md)
 
 
 ## Projects
