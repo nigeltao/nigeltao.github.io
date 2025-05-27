@@ -46,6 +46,7 @@
 - 2024-08-11 [JPEG Chroma Upsampling](./blog/2024/jpeg-chroma-upsampling.md)
 - 2024-10-06 [Go Embedding and Backwards Compatibility](./blog/2024/go-embedding-back-compat.md)
 - 2024-10-07 [Blue Noise Braille Art](./blog/2024/blue-noise-braille-art.md)
+- 2025-05-27 [These Days (One Night Lonely)](./blog/2025/these-days.md)
 
 
 ## Projects
@@ -71,4 +72,4 @@ I don't know who `twitter.com/nigeltao` is, but it's not me.
 
 ---
 
-Copyright 2018-2024 Nigel Tao
+Copyright 2018-2025 Nigel Tao
