@@ -47,6 +47,7 @@
 - 2024-10-06 [Go Embedding and Backwards Compatibility](./blog/2024/go-embedding-back-compat.md)
 - 2024-10-07 [Blue Noise Braille Art](./blog/2024/blue-noise-braille-art.md)
 - 2025-05-27 [These Days (One Night Lonely)](./blog/2025/these-days.md)
+- 2025-07-19 [Producing Uncompressed PNG Files](./blog/2025/uncompressed-png.md)
 
 
 ## Projects
