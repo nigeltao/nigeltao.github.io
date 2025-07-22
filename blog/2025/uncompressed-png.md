@@ -25,11 +25,11 @@ simpler, easier and quicker to produce an uncompressed PNG file. You could
 produce uncompressed BMP or PPM instead, but PNG is ubiquitous and widely
 understood by many software tools.
 
-[`uncompng.c`](https://github.com/google/wuffs/blob/1222a6886d411eef802df4000e2858690a71712b/snippet/uncompng.c)
+[`uncompng.c`](https://github.com/google/wuffs/blob/1e2e58cea012ea4c7553f327b63fafe196b0f9e2/snippet/uncompng.c)
 is a small (600-ish lines of code) single-file C library for producing
 uncompressed PNG files. It has no dependencies, not even on `malloc`. There's
 also an equivalent [`uncompng` Go
-package](https://github.com/google/wuffs/blob/1222a6886d411eef802df4000e2858690a71712b/lib/uncompng/uncompng.go),
+package](https://github.com/google/wuffs/blob/1e2e58cea012ea4c7553f327b63fafe196b0f9e2/lib/uncompng/uncompng.go),
 which has more commentary (and its unit tests can easily use the `image/png`
 decoder from Go's standard library).
 
@@ -102,8 +102,8 @@ pixels, this is 65536 bytes of data. The actual `julia-temp.png` file size is
 65877, which is a 0.5% overhead.
 
 The pngcrush'ed `julia-final.png` file's size is 26155 bytes. In an amusing
-coincidence, this is still slightly larger than the sum of the C program
-(`julia-gen.c`) and C library (`uncompng.c`): 1499 + 24549 = 26048 bytes.
+coincidence, this roughly equals the sum of the C program (`julia-gen.c`) and C
+library (`uncompng.c`): 1499 + 24830 = 26329 bytes.
 
 
 ## Uncompressed Chunks
@@ -122,10 +122,10 @@ into uncompressed chunks, to select the input-slice lengths so that the
 wrapped-slice lengths have a known upper bound. This lets us use fixed-sized
 buffers and hence the C code doesn't depend on `malloc` and the Go code can
 test that there are [no dynamic memory
-allocations](https://github.com/google/wuffs/blob/1222a6886d411eef802df4000e2858690a71712b/lib/uncompng/uncompng_test.go#L146)
+allocations](https://github.com/google/wuffs/blob/1e2e58cea012ea4c7553f327b63fafe196b0f9e2/lib/uncompng/uncompng_test.go#L146)
 (other than a re-usable `Encoder` struct that holds its own fixed-size buffer).
 
-[`uncompng.go`](https://github.com/google/wuffs/blob/1222a6886d411eef802df4000e2858690a71712b/lib/uncompng/uncompng.go)
+[`uncompng.go`](https://github.com/google/wuffs/blob/1e2e58cea012ea4c7553f327b63fafe196b0f9e2/lib/uncompng/uncompng.go)
 has some commentary about the details of the PNG file format (for an
 "uncompressed PNG" encoder): an IHDR chunk (containing width and height),
 multiple IDAT chunks containing an "uncompressed ZLIB" encoding of the pixel
