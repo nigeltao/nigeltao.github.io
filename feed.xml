@@ -1,9 +1,16 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <link href="https://nigeltao.github.io/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://nigeltao.github.io/" rel="alternate" type="text/html"/>
-  <updated>2025-10-14T00:00:00+00:00</updated>
+  <updated>2025-10-18T00:00:00+00:00</updated>
   <id>https://nigeltao.github.io/feed.xml</id>
   <title type="html">Nigel Tao's blog</title>
+  <entry>
+    <title type="html">Mischief (for Harpsichord)</title>
+    <link href="https://nigeltao.github.io/blog/2025/mischief.html" rel="alternate" type="text/html" title="Mischief (for Harpsichord)"/>
+    <published>2025-10-18T00:00:00+00:00</published>
+    <updated>2025-10-18T00:00:00+00:00</updated>
+    <id>https://nigeltao.github.io/blog/2025/mischief.html</id>
+  </entry>
   <entry>
     <title type="html">Empty Intervals are Valid Intervals</title>
     <link href="https://nigeltao.github.io/blog/2025/empty-intervals.html" rel="alternate" type="text/html" title="Empty Intervals are Valid Intervals"/>

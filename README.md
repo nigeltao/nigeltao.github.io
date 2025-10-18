@@ -49,6 +49,7 @@
 - 2025-05-27 [These Days (One Night Lonely)](./blog/2025/these-days.md)
 - 2025-07-19 [Producing Uncompressed PNG Files](./blog/2025/uncompressed-png.md)
 - 2025-10-14 [Empty Intervals are Valid Intervals](./blog/2025/empty-intervals.md)
+- 2025-10-18 [Mischief (for Harpsichord)](./blog/2025/mischief.md)
 
 
 ## Projects
