@@ -13,8 +13,6 @@
 }
 
 the_chords = \chords {
-  \tempo 4 = 90
-
   { a1 fs:m e d } \break
 
   { a1 fs:m e d } \break
@@ -56,7 +54,6 @@ the_chords = \chords {
 }
 
 the_lyrics = \lyricmode {
-
   \set fontSize = #(magnification->font-size 0.75)
 
   It's co -- ming round a -- gain
@@ -237,6 +234,8 @@ the_vocals = {
 }
 
 the_upper = {
+  \tempo 4 = 90
+
   \clef bass
   \key a \major
   \time 4/4
@@ -578,9 +577,9 @@ the_lower = {
 
   | %% Bar 48.
 
-  { a,,8 e, a, e,    e, b, d b, }
+  { a,,8 e, a, e,    e, b, e b, }
   { a,8 e a e        e, b, e b, }
-  { a,,8 e, a, e,    e, b, d b, }
+  { a,,8 e, a, e,    e, b, e b, }
   { a,8 e a e        e, b, e b, }
 
   | %% Bar 52.
@@ -659,9 +658,11 @@ the_lower = {
 
 \score {
   <<
+    %% Comment this out when making MIDI output.
     \the_chords
+
     \new Staff \with { instrumentName = "Vocals" }
-	  { \new Voice = "voc" { \the_vocals } }
+        { \new Voice = "voc" { \the_vocals } }
     \new Lyrics \lyricsto voc \the_lyrics
     \new PianoStaff \with { instrumentName = "Piano" } <<
       \new Staff \the_upper
@@ -670,5 +671,5 @@ the_lower = {
   >>
 
   \layout { }
-  %% \midi { }
+  \midi { }
 }

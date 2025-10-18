@@ -22,6 +22,10 @@ concert](https://www.youtube.com/playlist?list=OLAK5uy_k6kMTHj2OGupD1Elwpnwrm2uX
 that Powderfinger re-formed for in 2020, during COVID-19 lockdown, raising
 money for [Beyond Blue](https://www.beyondblue.org.au/).
 
+_Update on 2025-10-18: If you want to hear it, and don't have a pianist (or a
+piano) handy, here are low-quality [MIDI](./these-days.midi) and
+[MIDI-as-MP3](./these-days.mp3) versions._
+
 
 ---
 
