@@ -124,7 +124,7 @@ the_upper = {
     { b'2~ b'8 a' gs' a' } \\
     { <d' gs'>2 s2 }
   >>
-  { <f' a' d''>4 <e' g' c''> <d' gs' b'> <c' f' a'> }
+  { <f' a' d''>4 <e' gs' c''> <d' gs' b'> <c' f' a'> }
   <<
     { b'2~ b'8 f' e' f' } \\
     { <b e' gs'>2 s2 }
