@@ -50,6 +50,7 @@
 - 2025-07-19 [Producing Uncompressed PNG Files](./blog/2025/uncompressed-png.md)
 - 2025-10-14 [Empty Intervals are Valid Intervals](./blog/2025/empty-intervals.md)
 - 2025-10-18 [Mischief (for Harpsichord)](./blog/2025/mischief.md)
+- 2026-05-25 [Visualizing Y′CbCr Chroma Space](./blog/2026/visualizing-ycbcr.md)
 
 
 ## Projects
@@ -75,4 +76,4 @@ I don't know who `twitter.com/nigeltao` is, but it's not me.
 
 ---
 
-Copyright 2018-2025 Nigel Tao
+Copyright 2018-2026 Nigel Tao
