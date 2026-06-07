@@ -175,6 +175,10 @@ though these albums' images are all (subjectively) quite vibrant and colorful.
 
 ![YCbCr Album Art](./ycbcr-album-art.full-res.png)
 
+_Update on 2026-06-07: For an alternative data point (data suite?), of
+'natural' photos (instead of 'artificial' album art), here's the same CbCr
+visualization for [the Kodak Image suite](./ycbcr-kodim.full-res.png)._
+
 
 ## Making Your Own
 
