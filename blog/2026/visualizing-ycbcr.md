@@ -165,8 +165,9 @@ That Basantotsav.jpg photo is very colorful. Below are the chroma scatterplots
 also more typical?) images: 24 record albums' cover art. My curation choices
 probably give you a good guess as to how old I am.
 
-Of the chroma scatterplots, my favorites are *Homogenic*, *Californication* and
-*Dark Side of the Moon*.
+Of the chroma scatterplots, my favorites are *Homogenic*, *Dark Side of the
+Moon* and *Californication*. _Update on 2026-06-28: I also added *Impossible
+Princess* to the suite._
 
 I also think it's interesting that, to varying extents, most of the *Moon
 Safari*, *Sgt. Pepper's Lonely Hearts Club Band* and *She's So Unusual* chroma
