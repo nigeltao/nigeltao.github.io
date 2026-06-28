@@ -64,6 +64,7 @@
 - [rac](https://github.com/google/wuffs/blob/master/doc/spec/rac-spec.md), Random Access Compression
 - [taote](https://github.com/nigeltao/taote), The Acutely Opinionated Terminal Emulator
 - [taowm](https://github.com/nigeltao/taowm), The Acutely Opinionated Window Manager
+- [tkid](./tkid/tkid.md), The King Is Dead: A Trick Taking Game
 - [wuffs](https://github.com/google/wuffs), Wrangling Untrusted File Formats Safely
 
 
