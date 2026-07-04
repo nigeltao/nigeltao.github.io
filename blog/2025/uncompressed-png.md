@@ -33,6 +33,11 @@ package](https://github.com/google/wuffs/blob/1e2e58cea012ea4c7553f327b63fafe196
 which has more commentary (and its unit tests can easily use the `image/png`
 decoder from Go's standard library).
 
+_Update on 2026-07-05: Those links to C and Go code, above, are permalinks to
+the 2025 versions. More recent versions, in the [Wuffs
+repository](https://github.com/google/wuffs), have added features like allowing
+16-bit PNG output._
+
 For example, this tiny (50-ish line [`julia-gen.c`](./julia-gen.c) program)
 produces an image of a Julia set.
 
