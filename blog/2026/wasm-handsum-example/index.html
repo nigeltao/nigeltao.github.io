@@ -1,0 +1,257 @@
+<!DOCTYPE html><html>
+<head><meta charset="utf-8"><title>Handsum Example</title></head>
+<body style="background-color: #303030; color: white;">
+<h1 id="heading">Handsum Example</h1>
+
+<p>These album art images start as 147-byte Handsum 16×16 images (upscaled to
+128×128, with a blur effect).</p>
+
+<p>Click "Enhance!" to replace them with 256×256 JPEG images (downscaled to
+128×128), which are typically 10,000 or 20,000 bytes. Even higher resolutions
+would obviously be even more bytes.</p>
+
+<p>Click "Unhance!" to go back to the Handsum LQIPs (Low Quality Image
+Placeholders).</p>
+
+<p>The 147-byte Handsum thumbnail images are small enough to inline into the
+HTML page (196 bytes with base64 encoding), minimizing network round-trips and
+improving page load time.</p>
+
+<p>Feel free to <i>View Source</i> this HTML page.</p>
+
+<table>
+<tr><td>
+<button onclick="enhance('img00')">Enhance!</button><br>
+<button onclick="unhance('img00')">Unhance!</button></td><td>
+<div style="overflow: hidden; height: 128px"><img id="img00" width="128px" height="128px" data-handsum="/tdvzL/pe96s2pVIOtZIjuZonsbpj/iIj7jNeZvGjfuXyIdze92VubcoeraTWqqsmbuQj/iIj9hvj/iIj9iuj/iIj9hvj/iIj/iIbcVmOseDnLy3a9qBi8Y6i+d0j9ZPTOFmtoeAe4tniIhoFoiyiIiXdXdxiIiIh4Z3eYmulnaHiIiZ+op7iIiKmYmqiIh5iHh4" data-enhancedsrc="Air_Moon-Safari.jpeg"></div>
+</td><td>
+Air<br><i>Moon Safari</i>
+</td></tr>
+
+<tr><td>
+<button onclick="enhance('img01')">Enhance!</button><br>
+<button onclick="unhance('img01')">Unhance!</button></td><td>
+<div style="overflow: hidden; height: 128px"><img id="img01" width="128px" height="128px" data-handsum="/tdvVoZJlmeIKKmH2HiYeHqZpF15xkvbc0nkhliIhViIhmiIlmh5RWaFtTW4JmiKhTgo9hqaYyeJ9ShXl4AD9nYgjeqYp4m5O6nvCEmfg2mR+mdV54BU+k2Yd0/b9Uq3dTpslGeZhWqYdnZ4lmeWR3iWlluaZmq3pmiUZldZhUV4mZd4eZhbuZiqWaaHuYZZSqds" data-enhancedsrc="Beach-Boys_Pet-Sounds.jpeg"></div>
+</td><td>
+Beach Boys<br><i>Pet Sounds</i>
+</td></tr>
+
+<tr><td>
+<button onclick="enhance('img02')">Enhance!</button><br>
+<button onclick="unhance('img02')">Unhance!</button></td><td>
+<div style="overflow: hidden; height: 128px"><img id="img02" width="128px" height="128px" data-handsum="/tdvi7mZe7qomYqFuIjFqFK4Z3l16DyYFnl5iruoi8mIaJmqp3z5mIR3h1R3p4qoZ2uG9jh5Jal4lUdrZHfmlEqohFqXc1eGtFl3+FeaZXhZxntqpmdbhmI5pUephWj4tUl4qp73iZ/3d2ik5mqWd2h6dniYl3iJlnh3ZmAJlmA8ial1Spd8mZd3eamIary2iqvJ" data-enhancedsrc="Beatles_Sgt-Peppers-Lonely-Hearts-Club-Band.jpeg"></div>
+</td><td>
+Beatles<br><i>Sgt. Pepper's Lonely Hearts Club Band</i>
+</td></tr>
+
+<tr><td>
+<button onclick="enhance('img03')">Enhance!</button><br>
+<button onclick="unhance('img03')">Unhance!</button></td><td>
+<div style="overflow: hidden; height: 128px"><img id="img03" width="128px" height="128px" data-handsum="/tdvgAiIgAiIgAiIgBdogAh3YkY4gDgSR7BZgAiIgAiIgAeIgAiIohZ6gAiIqFAJ0gOIcGiwi6rZgBiIE0/vgBiXcRqpgAiIgAiI6G/11AuJsh54cQiJgRmpkAmIgAiIgAiIiIiIiIiIiIiZiImImHh4iIeHiIh4iIeIiIiIiIiIiIh3iIeIeJiYiImJiIiYiImI" data-enhancedsrc="Billie-Eilish_When-We-All-Fall-Asleep-Where-Do-We-Go.jpeg"></div>
+</td><td>
+Billie Eilish<br><i>When We All Fall Asleep, Where Do We Go?</i>
+</td></tr>
+
+<tr><td>
+<button onclick="enhance('img04')">Enhance!</button><br>
+<button onclick="unhance('img04')">Unhance!</button></td><td>
+<div style="overflow: hidden; height: 128px"><img id="img04" width="128px" height="128px" data-handsum="/tdvrLjdoSqTjag/YmEgjMqpqH/SeqmZ5zClwhm3G8t49zIKC9SX2J31bMuo02pEOaiZiamVm5oNiLlRuabpd7qlfLm+doiliXq4WcBoupaYmo1l64eYOsmaq4uJt5m4uHqYiYiIiZiYiYeZiJt4mphqaaWHmpeLWah4h4h3mHd5h6k4WnGJh4iFuHiIh4hA+HWI" data-enhancedsrc="Bjork_Homogenic.jpeg"></div>
+</td><td>
+Björk<br><i>Homogenic</i>
+</td></tr>
+
+<tr><td>
+<button onclick="enhance('img05')">Enhance!</button><br>
+<button onclick="unhance('img05')">Unhance!</button></td><td>
+<div style="overflow: hidden; height: 128px"><img id="img05" width="128px" height="128px" data-handsum="/tdvkzaIVXEHlUd2hnrHd1BnlWp3Vl+WdmiId1AMdDeLllythDijhlZvVDiKiWuPc0madlNnF2d4hlmYB4iLdWcHOJKudGKXdnqbd1YrNVVnl1rJhEqWd1AYlVAallRHdneJmYNYiJZcWXqddoq6Z2yuZXhndmhad4eXdo/IiHzktoVimnVWqaJQ3HepuZqmqHp5" data-enhancedsrc="Cyndi-Lauper_Shes-So-Unusual.jpeg"></div>
+</td><td>
+Cyndi Lauper<br><i>She's So Unusual</i>
+</td></tr>
+
+<tr><td>
+<button onclick="enhance('img06')">Enhance!</button><br>
+<button onclick="unhance('img06')">Unhance!</button></td><td>
+<div style="overflow: hidden; height: 128px"><img id="img06" width="128px" height="128px" data-handsum="/tdvcidoghiIUjiJcjUGcimIJ5OYgThgiJeagRiIgRiIcyRrgRiIokqrgRiIokhx4xeIgViwpymYgSiXVmcJgRiII62HgRiIgSi3gUiA8xmIkkdwohmIikPegRiIkhyIgRiIiIh4iIiIiJiHmIiXiJh5t4iHiIiXRoKIiIiIiIiIiHiJeIiJiIiHaIeJiIh5mYuI" data-enhancedsrc="Daft-Punk_Random-Access-Memories.jpeg"></div>
+</td><td>
+Daft Punk<br><i>Random Access Memories</i>
+</td></tr>
+
+<tr><td>
+<button onclick="enhance('img07')">Enhance!</button><br>
+<button onclick="unhance('img07')">Unhance!</button></td><td>
+<div style="overflow: hidden; height: 128px"><img id="img07" width="128px" height="128px" data-handsum="/tdvj/iI/F+8j/iI+FVoj/iI+oeWj/iI/YVlNd6zjuZodKZwj/iIuLiAj/iIuNiAj/iIj/iI7ZZYj9j6u6133skXfdE4nue3n+q5mOZij/iImre1ff+XjeJIrtSTjuunjut3iHiaZ4mIiHiJd4iIiIh4iIeImImIiIiYiKhT2oaIiKiT2omIiJiWqYmIeIiIiImI" data-enhancedsrc="David-Bowie_Aladdin-Sane.jpeg"></div>
+</td><td>
+David Bowie<br><i>Aladdin Sane</i>
+</td></tr>
+
+<tr><td>
+<button onclick="enhance('img08')">Enhance!</button><br>
+<button onclick="unhance('img08')">Unhance!</button></td><td>
+<div style="overflow: hidden; height: 128px"><img id="img08" width="128px" height="128px" data-handsum="/tdvj/iqPe/Jj9ifCvh4n6hfJsrPj7ifFKyvjuzYb/qInuZYf/eIC/yYj/iIB7lUf/mIj7h/NjC8j9h/CVoXj+hsC5XTj/iJLcQJI8uTbveINNZwj/iIh+Jkj/iIHPGIj/iIiIiJiIiIeIiJmIeIiIiImIiIiIiImImIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiIiI" data-enhancedsrc="Fleetwood-Mac_Rumours.jpeg"></div>
+</td><td>
+Fleetwood Mac<br><i>Rumours</i>
+</td></tr>
+
+<tr><td>
+<button onclick="enhance('img09')">Enhance!</button><br>
+<button onclick="unhance('img09')">Unhance!</button></td><td>
+<div style="overflow: hidden; height: 128px"><img id="img09" width="128px" height="128px" data-handsum="/tdvgiiIgzhogziIY1ZYgzd4hGkjhEeaY3mXkzaIgziIlDV6giiI1USJkyiI9TmYkziIhUiMYlmJhVh5pDWohVmYhUlohEmIdFmosyqYhDd5czVGhUh5hViJlUiZhUqZhEiJiHiJd4iIl3mad4mIh3iJh3iIh3iZd3mIiJiHmYiIiJdlqYeJiZiXmZiJiZh3iZeJ" data-enhancedsrc="Funkadelic_Maggot-Brain.jpeg"></div>
+</td><td>
+Funkadelic<br><i>Maggot Brain</i>
+</td></tr>
+
+<tr><td>
+<button onclick="enhance('img10')">Enhance!</button><br>
+<button onclick="unhance('img10')">Unhance!</button></td><td>
+<div style="overflow: hidden; height: 128px"><img id="img10" width="128px" height="128px" data-handsum="/tdvebapqJeZaKqJeZmJWrWZiHzYepiH14aDabipareIZptoiIdnx4u1WbmWyIRQ2KeGi6mI9mhwaqlrl1rSipmaiHcauXiJd4qalp/yqqll92eQmaq3eIlkyZiHaInGiYqciIiIiImYiIiIiIiIiIiIeImIiIiIiIiYzeeavciJjOeZndp7fNd5rdd4buV5nuh3" data-enhancedsrc="Garbage_Garbage.jpeg"></div>
+</td><td>
+Garbage<br><i>Garbage</i>
+</td></tr>
+
+<tr><td>
+<button onclick="enhance('img11')">Enhance!</button><br>
+<button onclick="unhance('img11')">Unhance!</button></td><td>
+<div style="overflow: hidden; height: 128px"><img id="img11" width="128px" height="128px" data-handsum="/tdvjMiIq7rIjKjs1k+pyU/Mk0qW50Jmk1gka7ypi7unVKzSjMiIg0fGOM+X5jGKc6iQimJ7hEnW9388kyaJ97JnqWAP9U/3hU/7xC+YcohQciiZc2mwNoAHyIADJr/Ii7mYgCgG0QOIA1aaZSsuYVlYZkdvgiI1wQiInLnpa8yIypmHmbezq5mYmaiVeqy6W8dY" data-enhancedsrc="Jack-Johnson_In-Between-Dreams.jpeg"></div>
+</td><td>
+Jack Johnson<br><i>In Between Dreams</i>
+</td></tr>
+
+<tr><td>
+<button onclick="enhance('img12')">Enhance!</button><br>
+<button onclick="unhance('img12')">Unhance!</button></td><td>
+<div style="overflow: hidden; height: 128px"><img id="img12" width="128px" height="128px" data-handsum="/tdvgBiIkQeIgChlwhZYcYgDxEQ3QbeHl4hXgAiIgAiIgRVYggWIhERHlhCJmIWGihh8A6aelXrGBIjPdFanFEu8oy24Yiu5kRqYl4uBazlvhXiDaUx/g1z6dE3OgSmnghupeJdoiYZ5eLlae5abl7/E+W/3Z5GIuXUJOZQ6iZRMiH72l4/4WnAPCKALbayrG9z6" data-enhancedsrc="Kylie-Minogue_Impossible-Princess.jpeg"></div>
+</td><td>
+Kylie Minogue<br><i>Impossible Princess</i>
+</td></tr>
+
+<tr><td>
+<button onclick="enhance('img13')">Enhance!</button><br>
+<button onclick="unhance('img13')">Unhance!</button></td><td>
+<div style="overflow: hidden; height: 128px"><img id="img13" width="128px" height="128px" data-handsum="/tdvcjh3hlAIc4kRl2/3Q2n8dEZIhWMGaJBXhGAGtDWJh3/3yDOJhERYRk6+qYc6p2JJac+I2r5iY3v8pGvkgimYgzmpcjh4gzd43JXjjLZq5k+oR2/7czqogzqXgziIkzeJh4eIiHl5hkzbZG/Xd3iJhniIh3h4h3d4WplYiaOpe9NXjcU6iZh3epeIiZmYiZqY" data-enhancedsrc="Metallica_Master-of-Puppets.jpeg"></div>
+</td><td>
+Metallica<br><i>Master of Puppets</i>
+</td></tr>
+
+<tr><td>
+<button onclick="enhance('img14')">Enhance!</button><br>
+<button onclick="unhance('img14')">Unhance!</button></td><td>
+<div style="overflow: hidden; height: 128px"><img id="img14" width="128px" height="128px" data-handsum="/tdveKZ2q3xcd3z6pk/4khqpYnYEoiQ1CMDdpTe5sheIpjVboxaIuWd69BqImLUl+SBcjMRX21/cjbmfxVxQjbl9hYm1nKvd0zrHCtSnvEqfjMmXqzmfW8qI2iqbZW/35R+JmImHh4qXiIiqZoaHh4h4h4iGiHdaiIaHh3d5iYWJiIiHqouZiIiIiIiJiJjGmImJ" data-enhancedsrc="Michael-Jackson_Thriller.jpeg"></div>
+</td><td>
+Michael Jackson<br><i>Thriller</i>
+</td></tr>
+
+<tr><td>
+<button onclick="enhance('img15')">Enhance!</button><br>
+<button onclick="unhance('img15')">Unhance!</button></td><td>
+<div style="overflow: hidden; height: 128px"><img id="img15" width="128px" height="128px" data-handsum="/tdvhEiIhEiIhEiIdFZYdEd5VWmaZFl6dEmohDiIhEiIlDeIhEiIlEiIhEiIlDmYhEiIdFiJlEiIhEiYhEiIhEiYgzmYgzmpgziIhDiYc0iIkzqHhEiIojiHhEiIkzeGhEiIi7ZqqKeSjLloqpqonLi52apymY2Zh7h0j/iIj/iIj/iIn/mIj/iI/Otzjs24WvaI" data-enhancedsrc="My-Bloody-Valentine_Loveless.jpeg"></div>
+</td><td>
+My Bloody Valentine<br><i>Loveless</i>
+</td></tr>
+
+<tr><td>
+<button onclick="enhance('img16')">Enhance!</button><br>
+<button onclick="unhance('img16')">Unhance!</button></td><td>
+<div style="overflow: hidden; height: 128px"><img id="img16" width="128px" height="128px" data-handsum="/tdvl3mXh3mIpnqXh2jZpmiHlkp6lmmYlld4h4eIiHiId3qIh3mYRneIp2uXdni3lmiHlVmXlml3hViYlVmXtDiHg0iVpEZYhEVmtliYhVmYlVmIhViIhViIhViIhViIhViIfMmrfdmHrbWNa8hmnscYbveIrdZ2j/iIkBdEkAeIUUuAwxabcjfoohh4ZDqbgRiI" data-enhancedsrc="Nirvana_Nevermind.jpeg"></div>
+</td><td>
+Nirvana<br><i>Nevermind</i>
+</td></tr>
+
+<tr><td>
+<button onclick="enhance('img17')">Enhance!</button><br>
+<button onclick="unhance('img17')">Unhance!</button></td><td>
+<div style="overflow: hidden; height: 128px"><img id="img17" width="128px" height="128px" data-handsum="/tdvgAiIgAiIgAiIgAiIgAiIgChkgRaYcSmqgAiIgAiIgAiIgAiIohNJkAeIMkz4dW9IgAiIcBm4gAiIgAiIgAiIgAiIgAiIgAiIgQuZgAiXgAiIgAiIgAiIgAiIgAiIgAiIiZiIiZiIiZiIqHjZiZiIiZiIiZiIiZiIiIiIiIiIiIiJeIp4iIiIiIiIiIiIiIiI" data-enhancedsrc="Pink-Floyd_Dark-Side-of-the-Moon.jpeg"></div>
+</td><td>
+Pink Floyd<br><i>Dark Side of the Moon</i>
+</td></tr>
+
+<tr><td>
+<button onclick="enhance('img18')">Enhance!</button><br>
+<button onclick="unhance('img18')">Unhance!</button></td><td>
+<div style="overflow: hidden; height: 128px"><img id="img18" width="128px" height="128px" data-handsum="/tdvn+mof/mIvtU2b/aIvumjj/iIvcvBj/qYj+i5j/mIn6iPffeIr7hKbufJvqnprVr6zbmZer3Jvbp6irEnj+haq8nHj+i7irl2m3x4apcqfMNIffhojNeZPvaIvKm5b/eIiIiIiIiIiYeIeZdWeZiYepqqeJh4iYiZiIiIeIiIh4mYl3u6l2h5lnZ0mGiIh4h3" data-enhancedsrc="Radiohead_OK-Computer.jpeg"></div>
+</td><td>
+Radiohead<br><i>OK Computer</i>
+</td></tr>
+
+<tr><td>
+<button onclick="enhance('img19')">Enhance!</button><br>
+<button onclick="unhance('img19')">Unhance!</button></td><td>
+<div style="overflow: hidden; height: 128px"><img id="img19" width="128px" height="128px" data-handsum="/tdvh3iYpll4h2mJllmZlVmolUqohEiGhlR5dWiId3qohWmXhmmYhVmohVqphVdFhmAoaICqtmpHyG9Yd2a5hnaYh3h6mHiJh3iJd4eHWc+Xd3iImYaHZ4i4mGuqh3h4d4iIjdZ4jthoi6/5i7/4lUu5kjj0lEQolEAEcSq3kimndXAGplAYXPGIj8gsjd/4jd/4" data-enhancedsrc="Red-Hot-Chilli-Peppers_Californication.jpeg"></div>
+</td><td>
+Red Hot Chilli Peppers<br><i>Californication</i>
+</td></tr>
+
+<tr><td>
+<button onclick="enhance('img20')">Enhance!</button><br>
+<button onclick="unhance('img20')">Unhance!</button></td><td>
+<div style="overflow: hidden; height: 128px"><img id="img20" width="128px" height="128px" data-handsum="/tdvhVdYlUaIdmh4lleJhmeYllZadFh6dYiIZVaIdWh3hWllx2aYdZh392mIZXv5l3p4dWh3d4RphEiIdYrBhFl3hWiThEiohVmHpVdYVoh3qWqbZ5eWx1uYdnq3hVmIhWiYiamXqZvFiYff54mRmWYuVn62mpdrKZRZl2h5h2dKl3dTGIl+d5rUipFrd2mn12y3" data-enhancedsrc="Smashing-Pumpkins_Mellon-Collie-and-the-Infinite-Sadness.jpeg"></div>
+</td><td>
+Smashing Pumpkins<br><i>Mellon Collie and the Infinite Sadness</i>
+</td></tr>
+
+<tr><td>
+<button onclick="enhance('img21')">Enhance!</button><br>
+<button onclick="unhance('img21')">Unhance!</button></td><td>
+<div style="overflow: hidden; height: 128px"><img id="img21" width="128px" height="128px" data-handsum="/tdvrdrIrMznvbiIq5iWvai8eaxmvah8iaWXu8/HjNymmbiIm8iFuqjGi8iFmqdne8iFvLiJeqhpvLiHermIrLeXisZojchYjNWIiriIe8iGi7iGe8iGm7aYi8l2jbhIe9N3p2mpdnqXl3h7h3iGp3iIlmiGh3d4h3d4eadWqpZ5aZiYiZmKeZiIiZiKiImYiImY" data-enhancedsrc="Taylor-Swift_1989.jpeg"></div>
+</td><td>
+Taylor Swift<br><i>1989</i>
+</td></tr>
+
+<tr><td>
+<button onclick="enhance('img22')">Enhance!</button><br>
+<button onclick="unhance('img22')">Unhance!</button></td><td>
+<div style="overflow: hidden; height: 128px"><img id="img22" width="128px" height="128px" data-handsum="/tdvjuiIjuiIjuiIjuiIjuiIjuiIjuiIjuiIjrj5jemIjrg/XemIjsirieqI7ay7bOaIjuiIjsj+juia6Y82npnNiIpSntgIbeGKeLY1TeaIfNZnjuiITeOIjuiIfdqIbemIiIiIp3rEiIiI9EqQiGj+gXhVt2YFZ4aIiIiIiJh5iIiIWZiLiIh3ioiZeJipiIiI" data-enhancedsrc="Velvet-Underground_The-Velvet-Underground-and-Nico.jpeg"></div>
+</td><td>
+Velvet Underground<br><i>The Velvet Underground and Nico</i>
+</td></tr>
+
+<tr><td>
+<button onclick="enhance('img23')">Enhance!</button><br>
+<button onclick="unhance('img23')">Unhance!</button></td><td>
+<div style="overflow: hidden; height: 128px"><img id="img23" width="128px" height="128px" data-handsum="/tdvgCh0ZWeIcEhzpWelYUiEhjugYUim0i20hmiIhmiJpnV5hmiIaXushmipJnx5llh5UlRJghNpU1mXhml4cSvXcz7ogAiIgAiIQnn6dmmIhmaIhmiIhD7pkz/4gAiIgAiIx0l6lDeX1mhotEd2pmr4tU2ZmHZJh3NIC/WIj/iIDMjqb/qIXsUJPvOIab33i7/5" data-enhancedsrc="White-Stripes_Elephant.jpeg"></div>
+</td><td>
+White Stripes<br><i>Elephant</i>
+</td></tr>
+
+</table>
+
+<script>
+
+var ex = null;
+
+function doUnhance(img) {
+    new Uint8Array(ex.memory.buffer, ex.get_src_ptr(), ex.get_src_len()).set(
+        Uint8Array.fromBase64(img.dataset.handsum));
+    if (ex.transform() == 0) {
+        const dst = new Uint8Array(ex.memory.buffer, ex.get_dst_ptr(), ex.get_dst_len());
+        img.src = "data:image/png;base64," + dst.toBase64();
+        img.style = "filter: blur(5px);";
+    }
+}
+
+function enhance(id) {
+    const img = document.getElementById(id);
+    img.src = "../../data/album-art-jpegs/" + img.dataset.enhancedsrc;
+    img.style = "";
+}
+
+function unhance(id) {
+    doUnhance(document.getElementById(id));
+}
+
+// lib.wasm was compiled from lib.c, in the same directory.
+//
+// https://nigeltao.github.io/blog/2026/wasm-handsum-example/lib.c
+//
+// lib.wasm is about 27 KiB, which you could feasibly base64-encode and inline
+// into this HTML page, if you wanted zero (instead of one) network fetches on
+// initial load. Alternatively, the C code could be ported to Javascript.
+WebAssembly.instantiateStreaming(fetch('lib.wasm'), {}).then(obj => {
+    ex = obj.instance.exports;
+    document.querySelectorAll('img').forEach((img) => {
+        doUnhance(img);
+    });
+});
+
+</script>
+</body>
+</html>
