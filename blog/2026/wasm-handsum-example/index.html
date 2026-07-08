@@ -223,15 +223,15 @@ function doUnhance(img) {
         Uint8Array.fromBase64(img.dataset.handsum));
     if (ex.transform() == 0) {
         const dst = new Uint8Array(ex.memory.buffer, ex.get_dst_ptr(), ex.get_dst_len());
+        img.onload = function() { img.style = "filter: blur(5px);"; };
         img.src = "data:image/png;base64," + dst.toBase64();
-        img.style = "filter: blur(5px);";
     }
 }
 
 function enhance(id) {
     const img = document.getElementById(id);
+    img.onload = function() { img.style = ""; };
     img.src = "../../data/album-art-jpegs/" + img.dataset.enhancedsrc;
-    img.style = "";
 }
 
 function unhance(id) {

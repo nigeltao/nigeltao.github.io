@@ -51,20 +51,36 @@
 - 2025-10-14 [Empty Intervals are Valid Intervals](./blog/2025/empty-intervals.md)
 - 2025-10-18 [Mischief (for Harpsichord)](./blog/2025/mischief.md)
 - 2026-05-25 [Visualizing Y′CbCr Chroma Space](./blog/2026/visualizing-ycbcr.md)
+- 2026-07-08 [Handsum: An LQIP Image File Format](./blog/2026/handsum.md)
 
 
 ## Projects
 
+- [base38](https://github.com/google/wuffs/blob/main/doc/note/base38-and-fourcc.md), packing 6, 10 or 12 characters into 32, 53 or 63 bits
+- [boring-libjpeg-turbo](https://github.com/nigeltao/boring-libjpeg-turbo), a slimmed-down fork of libjpeg-turbo
+- [clloverview](https://github.com/nigeltao/clloverview), source code overviews for C-like languages
+- [convert-to-nia](https://github.com/google/wuffs/tree/main/example/convert-to-nia), a `SECCOMP_MODE_STRICT` sandboxed image decoder
 - [dumbindent](https://nigeltao.github.io/blog/2020/dumbindent.html), a C formatter
+- [etc2](https://github.com/nigeltao/etc2), Ericsson Texture Compression in Go
 - [fuse-archive](https://github.com/google/fuse-archive), FUSE file system for archives and compressed files
+- [go fonts](https://nigeltao.github.io/blog/2022/go-fonts-v2010.html), the Go Font family
+- [handsum](https://nigeltao.github.io/blog/2026/handsum.html), a 147-byte Low Quality Image Placeholder file format
 - [iconvg](https://github.com/google/iconvg), Icon Vector Graphics
-- [jsonptr](https://nigeltao.github.io/blog/2020/jsonptr.html), a JSON formatter
+- [interval](https://pkg.go.dev/github.com/google/wuffs/lib/interval), a library for integer interval arithmetic, including bitwise ops
+- [jsonptr](https://nigeltao.github.io/blog/2020/jsonptr.html), a `SECCOMP_MODE_STRICT` sandboxed JSON formatter
+- [jwcc](https://nigeltao.github.io/blog/2021/json-with-commas-comments.html), JSON With Commas and Comments
+- [litonlylzma](https://pkg.go.dev/github.com/google/wuffs/lib/litonlylzma), a simple subset of the XZ/LZMA compression format
+- [lowleveljpeg](https://pkg.go.dev/github.com/google/wuffs/lib/lowleveljpeg), a library for creating JPEG files at the DCT level
+- [mzcat](https://github.com/google/wuffs/tree/main/example/mzcat), bzcat, lzcat, zcat all in one multi-tool
+- [nie](https://github.com/google/wuffs/blob/main/doc/spec/nie-spec.md), Naïve Image Formats
 - [qoir](https://github.com/nigeltao/qoir), a fast, simple, lossless image file format
 - [sflz4](https://github.com/nigeltao/sflz4), Single File LZ4
-- [rac](https://github.com/google/wuffs/blob/master/doc/spec/rac-spec.md), Random Access Compression
+- [stb-imagedumper](https://github.com/google/wuffs/tree/main/example/stb-imagedumper), a command-line image viewer (JPEG, PNG, WEBP, etc)
+- [rac](https://github.com/google/wuffs/blob/main/doc/spec/rac-spec.md), Random Access Compression
 - [taote](https://github.com/nigeltao/taote), The Acutely Opinionated Terminal Emulator
 - [taowm](https://github.com/nigeltao/taowm), The Acutely Opinionated Window Manager
 - [tkid](./tkid/tkid.md), The King Is Dead: A Trick Taking Game
+- [uncompng](https://nigeltao.github.io/blog/2025/uncompressed-png.html), simple, single file "encode an uncompressed PNG"
 - [wuffs](https://github.com/google/wuffs), Wrangling Untrusted File Formats Safely
 
 
