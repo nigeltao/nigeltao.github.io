@@ -234,7 +234,7 @@ applicable to any of those block sizes, but the DCT formulae are simplest for
 ![Stage 4](./handsum-stage-4.png)
 
 We started off using 8 bits (the half-open range `0 .. 256`) per RGB sample.
-Quantization from 8 to 4 bits (the half-open range `0 .. 15`) is conceptually
+Quantization from 8 to 4 bits (the half-open range `0 .. 16`) is conceptually
 as simple as doing `value >>= 4` on the encode side and `value *= 0x11` on the
 decode side.
 
