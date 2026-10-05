@@ -52,6 +52,7 @@
 - 2025-10-18 [Mischief (for Harpsichord)](./blog/2025/mischief.md)
 - 2026-05-25 [Visualizing Y′CbCr Chroma Space](./blog/2026/visualizing-ycbcr.md)
 - 2026-07-08 [Handsum: An LQIP Image File Format](./blog/2026/handsum.md)
+- 2026-10-05 [Reasons to Use Wuffs](./blog/2026/reasons-to-use-wuffs.md)
 
 
 ## Projects
